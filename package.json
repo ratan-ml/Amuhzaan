@@ -1,0 +1,25 @@
+{
+  "name": "Amuhzaan",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "version": "1.0.0",
+  "engines": {
+    "node": "16.2"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ratan-ml/Amuhzaan.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ratan-ml/Amuhzaan/issues"
+  },
+  "homepage": "https://github.com/ratan-ml/Amuhzaan#readme"
+}
