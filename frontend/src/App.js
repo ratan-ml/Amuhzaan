@@ -5,6 +5,7 @@ import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
 import ProductIndex from './components/ProductIndex';
+import ProductShow from './components/ProductShow';
 
 function App() {
   return (
@@ -20,9 +21,9 @@ function App() {
           <Route exact path="/categories/:categoryName">
             <ProductIndex />
           </Route>
-          {/* <Route exact path="/products/:productId">
+          <Route exact path="/products/:productId">
             <ProductShow />
-          </Route> */}
+          </Route>
         </Switch>
     </>
   );
