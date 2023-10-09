@@ -1,4 +1,161 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    padding: 20px;
+}
+
+.login-logo {
+    margin-bottom: 20px;
+    font-size: 24px; /* temp */
+    font-weight: bold; /* temp */
+}
+
+/* error handling */
+.error-container {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.error-border {
+    /* encase errors in a box  */
+    padding: 20px;
+    border: 1px solid #ff0000; 
+    border-radius: 8px;
+    width: 300px;
+}
+
+.error-list {
+    list-style: none;
+    padding: 0;
+    color: red; 
+}
+
+.login-form {
+    padding: 20px;
+    border: 1px solid #ccc; 
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+}
+
+.login-header {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
 form {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+label {
+    font-weight: bold;
+    font-size:smaller;
+    display: block;
+
+    padding-bottom: 2px;
+    text-align: left;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 7px;
+    border: 1px solid #b2b2b2;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 90%;
+    margin-bottom: 15px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.login-btn {
+    background-color: #ffd814;
+    border-radius: 7px;
+    border-color: #ffd814;
+    margin-bottom: 5px;
+}
+
+.demo-btn {
+    background-color: #ddd8d8;
+    border-radius: 7px;
+    border-color: hsl(60, 1%, 20%);
+    opacity: 90%;
+    margin-bottom: 5px;
+}
+
+.login-btn:hover {
+    background-image: linear-gradient(rgba(0,0,0,0.05) 0 0)
+}
+
+.demo-btn:hover {
+    background-image: linear-gradient(rgba(0,0,0,0.05) 0 0)
+}
+
+.create-account-container {
+    border: 1px solid #ccc; 
+    border-radius: 8px;
+    width: 300px;
+    display: inline-block;
+    padding: 8px 20px;
+    cursor: pointer;
+    text-align: center;
+    
+}
+
+.create-account-container a {
+    color: inherit;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.create-account-container:hover {
+    background-image: linear-gradient(rgba(0,0,0,0.05) 0 0)
+}
+
+.create-account-container a:hover {
+    color: black;
+}
+
+.divider {
+    width: 340px;
+    text-align: center;
+    border-bottom: 2px solid #f2f2f2;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+}
+
+.divider h5 {
+    line-height: 1;
+    font-size: 12px;
+    color: #767676;
+    font-weight: 400;
+    z-index: 2;
+    position: relative;
+    display: inline-block;
+    background-color: #fff;
+    padding: 0 8px 0 7px;
+    top: 7px;
+}
+
+
+
+
+
+
+
+
+/* form {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
@@ -52,4 +209,4 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background-color: #0056b3;
-}
+} */

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 import './LoginForm.css';
 
 const LoginFormPage = () => {
@@ -30,31 +30,61 @@ const LoginFormPage = () => {
         });
     }
 
+    const error_border = errors.length > 0 ? "error-border" : ""
+
+    const handleDemo = (e) => {
+        e.preventDefault();
+        return dispatch(sessionActions.login({credential: "demo@user.io", password: "password" }))
+    }
+
     return (
-        <form onSubmit={handleSubmit}>
-            <ul>
-                {errors.map(error => <li key={error}>{error}</li>)}
-            </ul>
-            <label>
-                Username or Email
-                <input
-                type="text"
-                value={credential}
-                onChange={(e) => setCredential(e.target.value)}
-                required
-                />
-            </label>
-            <label>
-                Password
-                <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                />
-            </label>
-            <button type="submit">Log In</button>
-        </form>
+        <div className="login-container">
+            <div className="login-logo">
+                <NavLink to="/">
+                    Amzn Logo
+                </NavLink>
+            </div>
+            <div className={`error-container ${error_border}`}>
+                <ul className="error-list">
+                    {errors.map(error => <li key={error}>{error}</li>)}
+                </ul>
+            </div>
+            <div className="login-form">
+                <h1 className="login-header">Sign in</h1>
+                <form onSubmit={handleSubmit}>
+                    <label>
+                        Email or mobile phone number
+                        <input
+                        id="login-email"
+                        type="text"
+                        value={credential}
+                        onChange={(e) => setCredential(e.target.value)}
+                        required
+                        />
+                    </label>
+                    <label>
+                        Password
+                        <input
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                        />
+                    </label>
+                    <button className="login-btn" type="submit">Log In</button>
+                </form>
+                <button className="demo-btn" onClick={handleDemo}>Demo Login</button>
+                {/* <p className="login-agreement">
+                    By continuing, you agree to Amuhzaan's Conditions of Use and Privacy Notice.
+                </p> */}
+            </div>
+            <div className="divider">
+                <h5>New to Amuhzaan?</h5>
+            </div>
+            <span className="create-account-container">
+                <NavLink to="/signup">Create your Amuhzaan account</NavLink>
+            </span>
+        </div>
     );
 }
 

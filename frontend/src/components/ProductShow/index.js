@@ -19,25 +19,39 @@ const ProductShow = props => {
 
     if (!product) return <h1>loading...</h1>
 
+    const price = product.price.toString()
+    const priceParts = price.split('.')
+    const whole = priceParts[0]
+    const fraction = priceParts[1]
+
     return (
         <>
             <div className="product-show-container">
-                {/* align top */}
                 <div className="show-image">
                     <img src="https://via.placeholder.com/300x300"/>
                 </div>
 
-                <div className="show-info">
+                <div className="product-info">
                     <h1 className="show-title">{product.name}</h1>
                     {/* average rating */}
-                    <p className="show-price">${product.price}</p>
+                    <div className="show-price">
+                        <span className="price-symbol">$</span>
+                        <span className="price-whole">{whole}</span>
+                        <span className="price-fraction">{fraction}</span>
+                    </div>
                     <h1>About this item</h1>
-                    <h1 className="feature-list">{product.description}</h1>
+                    <ul className="feature-list">
+                        <li>{product.description}</li>
+                    </ul>
                 </div>
 
                 <div className="purchase-panel">
                 {/* purchase info */}
-                    <h2>${product.price}</h2>
+                    <div className="show-price">
+                        <span className="price-symbol">$</span>
+                        <span className="price-whole">{whole}</span>
+                        <span className="price-fraction">{fraction}</span>
+                    </div>
                     <p>prime</p>
                     <br/>
                     {/* delivery date */}
@@ -68,7 +82,10 @@ const ProductShow = props => {
                         Eligible for Return, Refund or Replacement within 30 days of receipt
                     </p>
                 </div>
-                
+                <div className="description-container">
+                    <h3>Product Description</h3>
+                    <p>{product.description}</p>
+                </div>
             </div>
             {/* divider for reviews */}
             <hr></hr>
