@@ -27,22 +27,23 @@ const storeCurrentUser = user => {
 }
 
 export const login = (user) => async (dispatch) => {
-    const { credential, password } = user;
+    const { email, password } = user;
     const response = await csrfFetch('/api/session', {
         method: 'POST',
-        body: JSON.stringify({ credential, password })
+        body: JSON.stringify({ email, password })
     });
     const data = await response.json();
+    console.log(data)
     storeCurrentUser(data.user);
     dispatch(setCurrentUser(data.user));
     return response;
 };
 
 export const signup = (user) => async (dispatch) => {
-    const { username, email, password } = user;
+    const { name, email, password } = user;
     const response = await csrfFetch('/api/users', {
         method: 'POST',
-        body: JSON.stringify({ username, email, password })
+        body: JSON.stringify({ name, email, password })
     });
     const data = await response.json();
     storeCurrentUser(data.user);

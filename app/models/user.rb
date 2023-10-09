@@ -1,12 +1,9 @@
 class User < ApplicationRecord
-  validates :username, 
-    uniqueness: true, 
-    length: { in: 3..30 }, 
-    format: { without: URI::MailTo::EMAIL_REGEXP, message:  "can't be an email" }
   validates :email, 
     uniqueness: true, 
     length: { in: 3..255 }, 
     format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :name, presence: true
   validates :session_token, presence: true, uniqueness: true
   validates :password, length: { in: 6..255 }, allow_nil: true
 
@@ -14,9 +11,8 @@ class User < ApplicationRecord
 
   before_validation :ensure_session_token
 
-  def self.find_by_credentials(credential, password)
-    field = URI::MailTo::EMAIL_REGEXP.match(credential) ? :email : :username
-    user = User.find_by(field => credential)
+  def self.find_by_credentials(email, password)
+    user = User.find_by(email: email)
     user && user.authenticate(password) ? user : nil
   end
 
