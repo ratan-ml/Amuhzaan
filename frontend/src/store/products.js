@@ -17,7 +17,9 @@ const receiveProduct = product => {
 }
 
 export const getProducts = state =>  state.products ? Object.values(state.products) : []
-export const getProduct = productId => state => state.products ? state.products[productId] : null
+export const getProduct = productId => state => {
+    console.log(state, "init");
+    return state.products ? state.products[productId] : null}
 
 export const fetchProducts = () => async dispatch => {
     const res = await csrfFetch(`/api/products`);
@@ -29,13 +31,15 @@ export const fetchProducts = () => async dispatch => {
 
 export const fetchProduct = productId => async dispatch => {
     const res = await csrfFetch(`/api/products/${productId}`);
-    // if (res.ok) {
+    if (res.ok) {
+        console.log("here")
         const product = await res.json();
         dispatch(receiveProduct(product));
-    // }
+    }
 }
 
 const productsReducer = (state={}, action) => {
+    Object.freeze(state);
     const nextState = {...state};
     
     switch (action.type) {

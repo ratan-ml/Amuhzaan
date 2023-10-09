@@ -1,19 +1,23 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { fetchProduct, getProduct } from "../../store/products"
 import { useParams } from "react-router-dom"
 import "./ProductShow.css";
 
 // path = /products/:productId
-const ProductShow = () => {
+const ProductShow = props => {
     const { productId } = useParams()
     const dispatch = useDispatch()
+    // getProduct issue => undefined
     const product = useSelector(getProduct(productId));
 
     
+    
     useEffect(()=>{
         dispatch(fetchProduct(productId))
-    }, [dispatch, productId])
+    }, [productId])
+
+    if (!product) return <h1>loading...</h1>
 
     return (
         <>
@@ -48,7 +52,7 @@ const ProductShow = () => {
                     <br/>
                     {/* buy now (links to sign in if not logged in) */}
                     {/* buy now btn is not always available */}
-                    <button class="buy-now-btn">Buy Now</button>
+                    <button className="buy-now-btn">Buy Now</button>
                     {/* misc detail */}
                     <p className="a-size-small">
                         <span className="gray">Payment</span> Secure Transaction
