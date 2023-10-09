@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { fetchProducts, getProducts } from "../../store/products"
 import { useParams } from "react-router-dom"
 import ProductIndexItem from "./ProductIndexItem"
+import "./ProductIndex.css";
 
 // path = /categories/:categoryName
 const ProductIndex = () => {
@@ -27,12 +28,12 @@ const ProductIndex = () => {
 
 
     return (
-        <>
-            <h1>{categoryName}</h1>
-            <div>
+        <div className="category-container">
+            <h1 className="category-header">{categoryName}</h1>
+            <div className="product-index">
                 {products.map(product=><ProductIndexItem product={product} />)}
             </div>
-        </>
+        </div>
     )
 }
 

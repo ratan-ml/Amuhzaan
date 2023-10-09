@@ -1,21 +1,31 @@
 import { Link } from "react-router-dom"
 
-// why did sam include react?
 // figure out how to implement images
 
 const ProductIndexItem = ({product}) => {
 
     return (
-        <>
-            {/* show img: links to ProductShow path */}
-            {/* product name (path to product id or name?) */}
-            {/* amzn link show product name then multiple hashed values afterwards */}
-            <Link to={`/products/${product.id}`}>{product.name}</Link>
-            {/* product overall rating */}
-            {/* product pricing */}
-            <div>${product.price}</div>
-            {/* optional: product get as soon as date */}
-        </>
+        <div className="product-container">
+            <div className="product-listing-image">
+                {/* show img: links to ProductShow path */}
+                <Link to={`/products/${product.id}`}>
+                    <img src="https://via.placeholder.com/300x300"/>
+                </Link>
+            </div>
+
+            <div className="product-listing-details">
+                {/* product name (path to product id or name?) */}
+                {/* amzn link show product name then multiple hashed values afterwards */}
+                <h3 className="product-name">
+                    <Link to={`/products/${product.id}`}>{product.name}</Link>
+                </h3>
+                {/* product overall rating */}
+                <div>★★★☆☆</div>
+                {/* product pricing */}
+                <div className="product-price">${product.price}</div>
+                {/* optional: product get as soon as date */}
+            </div>
+        </div>
     )
 }
 
