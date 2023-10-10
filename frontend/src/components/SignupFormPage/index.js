@@ -57,7 +57,7 @@ const SignupFormPage = () => {
                         <input
                         type="text"
                         placeholder="First and last name"
-                        value=""
+                        value={name}
                         onChange={(e) => setName(e.target.value)}
                         required
                         />

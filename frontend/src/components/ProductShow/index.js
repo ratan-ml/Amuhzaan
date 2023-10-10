@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { fetchProduct, getProduct } from "../../store/products"
 import { useParams } from "react-router-dom"
 import "./ProductShow.css";
+import { addCartItem } from "../../store/cart_items";
 
 // path = /products/:productId
 const ProductShow = props => {
@@ -19,10 +20,15 @@ const ProductShow = props => {
 
     if (!product) return <h1>loading...</h1>
 
-    const price = product.price.toString()
-    const priceParts = price.split('.')
-    const whole = priceParts[0]
-    const fraction = priceParts[1]
+    const price = product.price.toString();
+    const priceParts = price.split('.');
+    const whole = priceParts[0];
+    const fraction = priceParts[1];
+
+    const handleCartClick = e => {
+        e.preventDefault();
+        dispatch(addCartItem(product))
+    }
 
     return (
         <>
@@ -62,9 +68,9 @@ const ProductShow = props => {
                     <p className="in-stock">In Stock</p>
                     {/* quantity (edit in cart)*/}
                     {/* add to cart (can add to cart when not logged in) */}
-                    <button className="add-to-cart-btn">Add to Cart</button>
+                    <button className="add-to-cart-btn" onClick={handleCartClick}>Add to Cart</button>
                     <br/>
-                    {/* buy now (links to sign in if not logged in) */}
+                    {/* buy now (requires user to be logged in) */}
                     {/* buy now btn is not always available */}
                     <button className="buy-now-btn">Buy Now</button>
                     {/* misc detail */}
