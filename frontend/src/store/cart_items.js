@@ -53,7 +53,7 @@ export const addCartItem = (cartItem) => async dispatch => {
         dispatch(receiveCartItem(cartItem))
     }
 }
-export const updateCartItems = (cartItem) => async dispatch => {
+export const updateCartItem = (cartItem) => async dispatch => {
     const res = await csrfFetch(`/api/cart_items/${cartItem.id}`,{
         method: "PATCH",
         body: JSON.stringify(cartItem),
@@ -67,7 +67,7 @@ export const updateCartItems = (cartItem) => async dispatch => {
         dispatch(receiveCartItem(updatedCartItem))
     }
 }
-export const deleteCartItems = (cartItemId) => async dispatch => {
+export const deleteCartItem = (cartItemId) => async dispatch => {
     const res = await csrfFetch(`/api/cart_items/${cartItemId}`, {
         method: "DELETE",
     })
@@ -91,9 +91,8 @@ const cartItemsReducer = (state={}, action) => {
 
     switch (action.type) {
         case RECEIVE_CART_ITEMS:
-            return {...action.products};
+            return {...action.cartItems};
         case RECEIVE_CART_ITEM:
-            // TODO: if item exists in cart, increment quantity
             nextState[action.cartItem.id] = action.cartItem;
             return nextState;
         case REMOVE_CART_ITEM:

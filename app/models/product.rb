@@ -7,6 +7,6 @@ class Product < ApplicationRecord
     # has_many reviews,
     # dependent: :destroy
 
-    has_many cartItems,
+    has_many :cartItems,
     dependent: :destroy
 end

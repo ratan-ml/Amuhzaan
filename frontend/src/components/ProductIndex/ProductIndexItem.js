@@ -4,6 +4,9 @@ import { Link } from "react-router-dom"
 
 const ProductIndexItem = ({product}) => {
 
+    const price = product.price.toFixed(2).toString();
+    const [whole, fraction] = price.split('.');
+
     return (
         <div className="product-container">
             <div className="product-listing-image">
@@ -22,7 +25,11 @@ const ProductIndexItem = ({product}) => {
                 {/* product overall rating */}
                 <div>★★★☆☆</div>
                 {/* product pricing */}
-                <div className="product-price">${product.price}</div>
+                <div className="product-price">
+                    <span className="price-symbol">$</span>
+                    <span className="price-whole">{whole}</span>
+                    <span className="price-fraction">{fraction}</span>
+                </div>
                 {/* optional: product get as soon as date */}
             </div>
         </div>

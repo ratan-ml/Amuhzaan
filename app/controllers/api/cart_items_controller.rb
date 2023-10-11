@@ -1,8 +1,10 @@
 class Api::CartItemsController < ApplicationController
+    before_action :require_logged_in, only: [:create]
     # user should be able to add to cart without login
     # login should retain cart items
     def index
-        # @cart_items = 
+        @cart_items = current_user.cartItems
+        render :index
     end
 
     def create
@@ -13,7 +15,7 @@ class Api::CartItemsController < ApplicationController
         # @cart_item ||= CartItem.new(cart_item_params)
 
         # if record already exists, increment quantity
-        @cart_item.quantity += cart_items_params[:quantity].to_i if @cart_item.persisted?
+        @cart_item.quantity += 1 if @cart_item.persisted?
         
         if @cart_item.save
             render :show
@@ -23,11 +25,20 @@ class Api::CartItemsController < ApplicationController
     end
 
     def update
+        @cart_item = CartItem.find_by(id: params[:id])
 
+        if @cart_item
+            @cart_item.quantity = params[:quantity]
+            @cart_item.save
+            render :show
+        else
+            render json: { error: 'Failed to update cart item'}, status: 422
+        end
     end
 
     def destroy
-
+        @cart_item = CartItem.find_by(id: params[:id])
+        render json: {} if @cart_item.delete
     end
 
     private

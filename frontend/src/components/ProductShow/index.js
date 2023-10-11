@@ -1,33 +1,42 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { fetchProduct, getProduct } from "../../store/products"
-import { useParams } from "react-router-dom"
+import { useParams, useHistory } from "react-router-dom"
 import "./ProductShow.css";
 import { addCartItem } from "../../store/cart_items";
 
 // path = /products/:productId
 const ProductShow = props => {
-    const { productId } = useParams()
-    const dispatch = useDispatch()
-    // getProduct issue => undefined
+    const { productId } = useParams();
+    const dispatch = useDispatch();
     const product = useSelector(getProduct(productId));
+    const currentUser = useSelector(state => state.session.user);
+    const history = useHistory(); // equivalent to useNavigate in v6
 
     
     
     useEffect(()=>{
-        dispatch(fetchProduct(productId))
+        dispatch(fetchProduct(productId));
     }, [productId])
 
     if (!product) return <h1>loading...</h1>
 
-    const price = product.price.toString();
-    const priceParts = price.split('.');
-    const whole = priceParts[0];
-    const fraction = priceParts[1];
+    const price = product.price.toFixed(2).toString();
+    const [whole, fraction] = price.split('.');
 
     const handleCartClick = e => {
         e.preventDefault();
-        dispatch(addCartItem(product))
+
+        if (!currentUser) {
+            history.push("/login");
+        } else {
+            const user_id = currentUser.id;
+            const product_id = productId;
+            const cartProduct = { user_id, product_id };
+            dispatch(addCartItem(cartProduct));
+            history.push("/cart") // check if cart received item
+        }
+        
     }
 
     return (
