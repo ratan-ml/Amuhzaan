@@ -6,7 +6,7 @@ const HomePage = () => {
         <>
             <Link to="categories/test">test</Link>
             <Link to="categories/test2">test2</Link>
-            <Link to="categories/test3">test3</Link>
+            <Link to="categories/test3">test5</Link>
         </>
     )
 }
