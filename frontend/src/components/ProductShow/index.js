@@ -11,8 +11,8 @@ const ProductShow = props => {
     const dispatch = useDispatch();
     const product = useSelector(getProduct(productId));
     const currentUser = useSelector(state => state.session.user);
+    const [quantity, setQuantity] = useState(1)
     const history = useHistory(); // equivalent to useNavigate in v6
-
     
     
     useEffect(()=>{
@@ -24,6 +24,11 @@ const ProductShow = props => {
     const price = product.price.toFixed(2).toString();
     const [whole, fraction] = price.split('.');
 
+    const options = []
+    for (let i = 1; i <= 10; i++) {
+        options.push(<option value={i}>{i}</option>);
+    }
+
     const handleCartClick = e => {
         e.preventDefault();
 
@@ -32,11 +37,20 @@ const ProductShow = props => {
         } else {
             const user_id = currentUser.id;
             const product_id = productId;
-            const cartProduct = { user_id, product_id };
+            const cartProduct = { user_id, product_id, quantity };
             dispatch(addCartItem(cartProduct));
             history.push("/cart") // check if cart received item
         }
-        
+    }
+
+    const handleBuyClick = e => {
+        e.preventDefault()
+
+        if (!currentUser) {
+            history.push("/login")
+        } else {
+            // checkout page
+        }
     }
 
     return (
@@ -75,13 +89,17 @@ const ProductShow = props => {
                     <br/>
                     {/* in stock/out of stock */}
                     <p className="in-stock">In Stock</p>
+                    Qty: 
+                    <select onChange={e => setQuantity(e.target.value)}>
+                        {options}
+                    </select>
                     {/* quantity (edit in cart)*/}
                     {/* add to cart (can add to cart when not logged in) */}
                     <button className="add-to-cart-btn" onClick={handleCartClick}>Add to Cart</button>
                     <br/>
                     {/* buy now (requires user to be logged in) */}
                     {/* buy now btn is not always available */}
-                    <button className="buy-now-btn">Buy Now</button>
+                    <button className="buy-now-btn" onClick={handleBuyClick}>Buy Now</button>
                     {/* misc detail */}
                     <p className="a-size-small">
                         <span className="gray">Payment</span> Secure Transaction

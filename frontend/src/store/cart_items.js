@@ -23,12 +23,12 @@ const removeCartItem = (cartItemId) => {
         cartItemId
     }
 }
-const checkoutCartItems = (cartItemIds) => {
-    return {
-        type: CHECKOUT_CART,
-        cartItemIds
-    }
-}
+// const checkoutCartItems = (cartItemIds) => {
+//     return {
+//         type: CHECKOUT_CART,
+//         cartItemIds
+//     }
+// }
 
 export const getCartItems = state => state.cartItems ? Object.values(state.cartItems) : []
 
@@ -76,14 +76,14 @@ export const deleteCartItem = (cartItemId) => async dispatch => {
     }
 }
 // work in progress
-export const checkoutCart = (cartItemId) => async dispatch => {
-    const res = await csrfFetch(`/api/cart_items/${cartItemId}`, {
-        method: "PATCH",
-    })
-    if (res.ok) {
-        dispatch(removeCartItem(cartItemId))
-    }
-}
+// export const checkoutCart = (cart) => async dispatch => {
+//     const res = await csrfFetch(`/api/cart_items/`, {
+//         method: "DELETE",
+//     })
+//     if (res.ok) {
+//         dispatch(removeCartItem(cart))
+//     }
+// }
 
 const cartItemsReducer = (state={}, action) => {
     Object.freeze(state);
@@ -99,8 +99,8 @@ const cartItemsReducer = (state={}, action) => {
             delete nextState[action.cartItemId];
             return nextState;
         // work in progress
-        case CHECKOUT_CART:
-
+        // case CHECKOUT_CART:
+        //     return {};
         default:
             return state;
     }
