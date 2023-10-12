@@ -7,6 +7,8 @@ import Navigation from "./components/Navigation";
 import ProductIndex from './components/ProductIndex';
 import ProductShow from './components/ProductShow';
 import CartIndex from './components/CartIndex';
+import CheckoutPage from './components/CheckoutPage';
+import HomePage from './components/HomePage';
 
 
 function App() {
@@ -28,6 +30,12 @@ function App() {
           </Route>
           <Route exact path="/cart">
             <CartIndex />
+          </Route>
+          <Route exact path="/checkout">
+            <CheckoutPage />
+          </Route>
+          <Route exact path="/">
+            <HomePage />
           </Route>
         </Switch>
     </>

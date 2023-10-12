@@ -1,0 +1,32 @@
+.checkout-container {
+    /* display: flex; */
+    margin: 20px;
+    /* justify-content: space-evenly;
+    flex-direction: column; */
+    /* text-align: left; */
+}
+
+.thank-you-header {
+    color: #207b1e;
+}
+
+.thank-you-msg {
+    padding-left: 10px;
+    font-size: 25px;
+}
+
+.thank-you-container {
+    margin-bottom: 10px;
+}
+
+.order-placed-msg {
+    padding-bottom: 10px;
+}
+
+.continue-shopping {
+    color: #0000EE;
+    text-decoration: underline;
+}
+.delivery-date {
+    font-weight: 650;
+}

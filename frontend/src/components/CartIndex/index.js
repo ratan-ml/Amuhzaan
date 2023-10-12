@@ -3,11 +3,13 @@ import { getCartItems, fetchCartItems } from "../../store/cart_items"
 import { useEffect } from "react"
 import CartIndexItem from "./CartIndexItem"
 import { deleteCartItem } from "../../store/cart_items";
+import { useHistory } from "react-router-dom"
 import "./CartIndex.css";
 
 const CartIndex = () => {
     const dispatch = useDispatch()
     const cartItems = useSelector(getCartItems)
+    const history = useHistory()
 
     useEffect(()=>{
         dispatch(fetchCartItems())
@@ -29,6 +31,7 @@ const CartIndex = () => {
     const handleCheckoutClick = e => {
         e.preventDefault();
         cartItems.forEach(cartItem => dispatch(deleteCartItem(cartItem.id)))
+        history.push("/checkout")
     }
 
     return (
