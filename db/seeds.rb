@@ -19,11 +19,11 @@
     ApplicationRecord.connection.reset_pk_sequence!('products')
     
     puts "Creating demo user..."
-    User.create!(
+    User.create!({
         name: 'demo',
         email: 'demo@user.io', 
         password: 'password'
-    )
+    })
     puts "creating more users"
     # More users
     10.times do 
