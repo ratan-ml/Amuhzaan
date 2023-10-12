@@ -6,13 +6,10 @@ import { updateCartItem, deleteCartItem } from "../../store/cart_items"
 
 const CartIndexItem = ({cartItem}) => {
     const dispatch = useDispatch()
-    console.log(cartItem.quantity, 'here')
     const [quantity, setQuantity] = useState(cartItem.quantity)
-    console.log(quantity)
 
     useEffect(()=> {
         setQuantity(cartItem.quantity)
-        // dispatch(updateCartItem(cartItem))
     },[cartItem])
 
     const options = []

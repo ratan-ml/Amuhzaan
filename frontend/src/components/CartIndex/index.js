@@ -12,8 +12,6 @@ const CartIndex = () => {
     const history = useHistory()
 
     useEffect(()=>{
-        // async issue?
-        // cartindexitem is using the old cartitems
         dispatch(fetchCartItems())
     },[])
 
