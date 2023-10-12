@@ -1,0 +1,24 @@
+.top-navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #131921;
+}
+
+.home-logo {
+    width: 130px;
+    height: 55px;
+}
+
+.home-logo:hover {
+    border: 1px solid white;
+    border-radius: 3px;
+}
+
+.others a {
+    color: white;
+}
+
+.cart-icon {
+    width: 75px;
+    height: 55;
+}
