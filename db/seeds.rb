@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-ApplicationRecord.transaction do 
+# ApplicationRecord.transaction do 
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
     User.destroy_all
@@ -32,7 +32,7 @@ ApplicationRecord.transaction do
             password: 'password'
         }) 
     end
-
+    puts "creating product"
     10.times do
         Product.create!({
             name: Faker::Book.title,
@@ -68,4 +68,4 @@ ApplicationRecord.transaction do
     #     category: 'test')
 
     puts "Done!"
-end
+# end
