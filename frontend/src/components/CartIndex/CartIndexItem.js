@@ -6,11 +6,14 @@ import { updateCartItem, deleteCartItem } from "../../store/cart_items"
 
 const CartIndexItem = ({cartItem}) => {
     const dispatch = useDispatch()
+    console.log(cartItem.quantity, 'here')
     const [quantity, setQuantity] = useState(cartItem.quantity)
+    console.log(quantity)
 
     useEffect(()=> {
-        dispatch(updateCartItem(cartItem))
-    },[])
+        setQuantity(cartItem.quantity)
+        // dispatch(updateCartItem(cartItem))
+    },[cartItem])
 
     const options = []
     for (let i = 1; i <= 10; i++) {
@@ -27,7 +30,6 @@ const CartIndexItem = ({cartItem}) => {
         setQuantity(newQty);
         const updatedCartItem = {...cartItem, quantity: newQty};
         dispatch(updateCartItem(updatedCartItem));
-        
     }
 
     const handleDeleteClick = e => {
@@ -63,7 +65,7 @@ const CartIndexItem = ({cartItem}) => {
                         ) : (
                             <select className="select-qty" value={quantity} onChange={handleQuantityChange}>
                                 {options}
-                                <hr></hr>
+                                {/* <hr></hr> */}
                                 <option value="11">10+</option>
                             </select>
                         )}

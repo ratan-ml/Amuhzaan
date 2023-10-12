@@ -42,6 +42,24 @@ ApplicationRecord.transaction do
         })
     end
 
+    10.times do
+        Product.create!({
+            name: Faker::Book.title,
+            description: Faker::Lorem.paragraph(sentence_count: 6),
+            price: Faker::Commerce.price(range: 9.99..24.99),
+            category: 'test2'
+        })
+    end
+
+    10.times do
+        Product.create!({
+            name: Faker::Book.title,
+            description: Faker::Lorem.paragraph(sentence_count: 6),
+            price: Faker::Commerce.price(range: 9.99..24.99),
+            category: 'test3'
+        })
+    end
+
 
     # test_subj = Product.create(
     #     name: 'Test Product', 
