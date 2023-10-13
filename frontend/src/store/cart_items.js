@@ -1,9 +1,8 @@
 import csrfFetch from "./csrf";
 
-export const RECEIVE_CART_ITEMS = 'cart_items/RECEIVE_CART_ITEMS'
-export const RECEIVE_CART_ITEM = 'cart_items/RECEIVE_CART_ITEM'
-export const REMOVE_CART_ITEM = 'cart_items/REMOVE_CART_ITEM'
-export const CHECKOUT_CART = 'cart_items/CHECKOUT_CART'
+const RECEIVE_CART_ITEMS = 'cart_items/RECEIVE_CART_ITEMS'
+const RECEIVE_CART_ITEM = 'cart_items/RECEIVE_CART_ITEM'
+const REMOVE_CART_ITEM = 'cart_items/REMOVE_CART_ITEM'
 
 const receiveCartItems = (cartItems) => {
     return {
@@ -23,12 +22,6 @@ const removeCartItem = (cartItemId) => {
         cartItemId
     }
 }
-// const checkoutCartItems = (cartItemIds) => {
-//     return {
-//         type: CHECKOUT_CART,
-//         cartItemIds
-//     }
-// }
 
 export const getCartItems = state => state.cartItems ? Object.values(state.cartItems) : []
 
@@ -75,15 +68,6 @@ export const deleteCartItem = (cartItemId) => async dispatch => {
         dispatch(removeCartItem(cartItemId))
     }
 }
-// work in progress
-// export const checkoutCart = (cart) => async dispatch => {
-//     const res = await csrfFetch(`/api/cart_items/`, {
-//         method: "DELETE",
-//     })
-//     if (res.ok) {
-//         dispatch(removeCartItem(cart))
-//     }
-// }
 
 const cartItemsReducer = (state={}, action) => {
     Object.freeze(state);
@@ -98,12 +82,9 @@ const cartItemsReducer = (state={}, action) => {
         case REMOVE_CART_ITEM:
             delete nextState[action.cartItemId];
             return nextState;
-        // work in progress
-        // case CHECKOUT_CART:
-        //     return {};
         default:
             return state;
     }
 }
 
-export default cartItemsReducer
+export default cartItemsReducer;
