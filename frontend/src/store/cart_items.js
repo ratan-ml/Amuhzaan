@@ -69,7 +69,7 @@ export const deleteCartItem = (cartItemId) => async dispatch => {
     }
 }
 
-const cartItemsReducer = (state={}, action) => {
+const cartItemReducer = (state={}, action) => {
     Object.freeze(state);
     const nextState = {...state}
 
@@ -87,4 +87,4 @@ const cartItemsReducer = (state={}, action) => {
     }
 }
 
-export default cartItemsReducer;
+export default cartItemReducer;
