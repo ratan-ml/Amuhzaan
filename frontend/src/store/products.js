@@ -9,10 +9,10 @@ const receiveProducts = products => {
         products
     }
 }
-const receiveProduct = product => {
+const receiveProduct = payload => {
     return {
         type: RECEIVE_PRODUCT,
-        product
+        payload
     }
 }
 
@@ -30,11 +30,10 @@ export const fetchProducts = () => async dispatch => {
 export const fetchProduct = productId => async dispatch => {
     const res = await csrfFetch(`/api/products/${productId}`);
     if (res.ok) {
-        const product = await res.json();
-        dispatch(receiveProduct(product));
-        // const payload = await res.json();
-        // console.log(payload, "here")
-        // dispatch(receiveProduct(payload));
+        // const product = await res.json();
+        // dispatch(receiveProduct(product));
+        const payload = await res.json();
+        dispatch(receiveProduct(payload));
     }
 }
 
@@ -49,8 +48,10 @@ const productsReducer = (state={}, action) => {
         case RECEIVE_PRODUCT:
             // clear index page's inherited state
             nextState = {}
-            nextState[action.product.id] = action.product;
-            return nextState;
+            // console.log(action)
+            // nextState[action.payload.product.id] = action.payload.product;
+            // return nextState;
+            return {...nextState, [action.payload.product.id]: action.payload.product}
         default:
             return state;
     }

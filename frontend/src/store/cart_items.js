@@ -75,10 +75,11 @@ const cartItemReducer = (state={}, action) => {
 
     switch (action.type) {
         case RECEIVE_CART_ITEMS:
-            return {...action.cartItems};
+            return {...nextState, ...action.cartItems};
         case RECEIVE_CART_ITEM:
-            nextState[action.cartItem.id] = action.cartItem;
-            return nextState;
+            // nextState[action.cartItem.id] = action.cartItem;
+            // return nextState;
+            return {...nextState, [action.cartItem.id]: action.cartItem}
         case REMOVE_CART_ITEM:
             delete nextState[action.cartItemId];
             return nextState;

@@ -26,7 +26,7 @@ const ProductReviewForm = ({product}) => {
         }
 
         dispatch(addReview(reviewObj))
-
+        // reset the form
         setTitle('');
         setBody('');
         setRating(1);
@@ -39,6 +39,7 @@ const ProductReviewForm = ({product}) => {
 
     return (
         <>
+
 
             <h1>Review this product</h1> 
             <form className="review-form" onSubmit={handleAddReviewClick}>

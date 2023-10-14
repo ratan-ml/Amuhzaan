@@ -9,4 +9,8 @@ class Product < ApplicationRecord
 
     has_many :cartItems,
     dependent: :destroy
+
+    has_many :reviewers,
+    through: :reviews,
+    source: :user
 end

@@ -1,4 +1,5 @@
 import csrfFetch from "./csrf";
+import { RECEIVE_PRODUCT } from "./products";
 
 const RECEIVE_REVIEWS = 'reviews/RECEIVE_REVIEWS'
 const RECEIVE_REVIEW = 'reviews/RECEIVE_REVIEW'
@@ -23,8 +24,8 @@ const removeReview = reviewId => {
     }
 }
 
-// export const getReviews = state => state.reviews ? Object.values(state.reviews) : []
-export const getReviews = state => state.product ? Object.values(state.product.reviews) : []
+export const getReviews = state => state.reviews ? Object.values(state.reviews) : []
+// export const getReviews = state => state.product ? Object.values(state.product.reviews) : []
 
 export const fetchReviews = () => async dispatch => {
     const res = await csrfFetch(`/api/reviews`)
@@ -75,11 +76,14 @@ const reviewReducer = (state={}, action) => {
     const nextState = {...state}
 
     switch (action.type) {
-        case RECEIVE_REVIEWS:
-            return {...action.reviews};
+        // case RECEIVE_REVIEWS:
+        //     return {...action.reviews};
+        case RECEIVE_PRODUCT:
+            return {...nextState, ...action.payload.reviews}
         case RECEIVE_REVIEW:
-            nextState[action.review.id] = action.review;
-            return nextState;
+            // nextState[action.review.id] = action.review;
+            // return nextState;
+            return {...nextState, [action.review.id]: action.review}
         case REMOVE_REVIEW:
             delete nextState[action.reviewId];
             return nextState;

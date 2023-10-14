@@ -13,7 +13,6 @@ const ProductIndex = () => {
     const products = useSelector(getProducts)
     const category = products.filter(product => product.category === categoryName)
     
-    // console.log(categoryName)
 
     useEffect(()=>{
         dispatch(fetchProducts());

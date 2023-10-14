@@ -1,9 +1,14 @@
-json.extract! @product, :id, :category, :name, :description, :price
+json.product do 
+    json.extract! @product, :id, :category, :name, :description, :price
+end
+
+reviews = @product.reviews.where(product_id: @product.id)
 
 json.reviews do 
-    @product.reviews.each do |review|
+    reviews.each do |review|
         json.set! review.id do
-            json.extract! review, :id, :title, :body, :rating, :user_id, :product_id
+            json.extract! review, :title, :body, :rating, :user_id, :product_id
+            json.username review.user.name
         end
     end
 end

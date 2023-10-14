@@ -1,36 +1,30 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { fetchProduct, getProduct, getProducts } from "../../store/products"
 import { useParams, useHistory } from "react-router-dom"
-import "./ProductShow.css";
+import { fetchProduct, getProduct } from "../../store/products"
 import { addCartItem } from "../../store/cart_items";
+import { getReviews } from "../../store/reviews"
 import ProductReviewForm from "./ProductReviewForm";
-import { getReviews, fetchReviews } from "../../store/reviews"
 import ReviewIndexItem from "./ReviewIndexItem";
+import "./ProductShow.css";
 
 // path = /products/:productId
 const ProductShow = () => {
     const { productId } = useParams();
     // console.log(productId)
     const dispatch = useDispatch();
-    const product = useSelector(getProduct(productId));
-    const currentUser = useSelector(state => state.session.user);
-    const reviews = useSelector(getReviews)
-    // const [reviews, setReviews] = useState([])
-
-    const [quantity, setQuantity] = useState(1)
     const history = useHistory(); // equivalent to useNavigate in v6
-    // const reviews = useSelector(getReviews) // jbuilder response
-    console.log(reviews)
-
+    const currentUser = useSelector(state => state.session.user);
+    const product = useSelector(getProduct(productId));
+    const [quantity, setQuantity] = useState(1)
+    const reviews = useSelector(getReviews)
+    const productReviews = reviews.filter(review => review.productId == productId)
+    const reviewed = productReviews.some(review => review.userId == currentUser.id)
     
 
     useEffect(() => {
-        // this code should run when cmp is mounted
         dispatch(fetchProduct(productId));
-        // dispatch(fetchReviews())
-        // if (product && product.reviews) setReviews(Object.values(product.reviews))
-        // if (product && product.reviews) setReviews(Object.values(existingReviews))
+        // fetchProduct will include reviews in json/jbuilder response
     }, [])
 
     if (!product) return <h1>loading...</h1>
@@ -145,9 +139,10 @@ const ProductShow = () => {
                 </div>
                 <div className="reviews">
                 {/* customer reviews */}
-                {Object.values(reviews).map(review => <ReviewIndexItem review={review}/>)}
-                {/* {reviewList} */}
-                <ProductReviewForm product={product}/>
+                {Object.values(productReviews).map(review => <ReviewIndexItem review={review}/>)}
+                {/* if already reviewed by current user, do not show form */}
+                { reviewed ? null : <ProductReviewForm product={product}/>}
+                
                 </div>
             </div>
         </>
