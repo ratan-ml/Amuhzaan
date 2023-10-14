@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/ratan-ml/Amuhzaan/issues"
   },
-  "homepage": "https://github.com/ratan-ml/Amuhzaan#readme"
+  "homepage": "https://github.com/ratan-ml/Amuhzaan#readme",
+  "dependencies": {
+    "react-icons": "^4.11.0"
+  }
 }

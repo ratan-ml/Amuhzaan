@@ -4,8 +4,8 @@ class Product < ApplicationRecord
 
     # has_one_attached :photo (where is this from?)
 
-    # has_many reviews,
-    # dependent: :destroy
+    has_many :reviews,
+    dependent: :destroy
 
     has_many :cartItems,
     dependent: :destroy

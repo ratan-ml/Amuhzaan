@@ -11,13 +11,13 @@ const ProductIndex = () => {
     // explain how the pathing works
     const { categoryName } = useParams()
     const products = useSelector(getProducts)
-    // const prodArray = products.filter(product => product.category === categoryName)
+    const category = products.filter(product => product.category === categoryName)
     
     // console.log(categoryName)
 
     useEffect(()=>{
-        dispatch(fetchProducts())
-    },[dispatch])
+        dispatch(fetchProducts());
+    },[])
 
     // display category name
     // const categoryString = categoryName.toString();
@@ -31,7 +31,7 @@ const ProductIndex = () => {
         <div className="category-container">
             <h1 className="category-header">{categoryName}</h1>
             <div className="product-index">
-                {products.map(product=><ProductIndexItem product={product} />)}
+                {category.map(product=><ProductIndexItem product={product} />)}
             </div>
         </div>
     )

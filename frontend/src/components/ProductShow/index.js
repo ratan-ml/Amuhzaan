@@ -1,23 +1,37 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { fetchProduct, getProduct } from "../../store/products"
+import { fetchProduct, getProduct, getProducts } from "../../store/products"
 import { useParams, useHistory } from "react-router-dom"
 import "./ProductShow.css";
 import { addCartItem } from "../../store/cart_items";
+import ProductReviewForm from "./ProductReviewForm";
+import { getReviews, fetchReviews } from "../../store/reviews"
+import ReviewIndexItem from "./ReviewIndexItem";
 
 // path = /products/:productId
-const ProductShow = props => {
+const ProductShow = () => {
     const { productId } = useParams();
+    // console.log(productId)
     const dispatch = useDispatch();
     const product = useSelector(getProduct(productId));
     const currentUser = useSelector(state => state.session.user);
+    const reviews = useSelector(getReviews)
+    // const [reviews, setReviews] = useState([])
+
     const [quantity, setQuantity] = useState(1)
     const history = useHistory(); // equivalent to useNavigate in v6
+    // const reviews = useSelector(getReviews) // jbuilder response
+    console.log(reviews)
+
     
-    
-    useEffect(()=>{
+
+    useEffect(() => {
+        // this code should run when cmp is mounted
         dispatch(fetchProduct(productId));
-    }, [productId])
+        // dispatch(fetchReviews())
+        // if (product && product.reviews) setReviews(Object.values(product.reviews))
+        // if (product && product.reviews) setReviews(Object.values(existingReviews))
+    }, [])
 
     if (!product) return <h1>loading...</h1>
 
@@ -49,9 +63,11 @@ const ProductShow = props => {
         if (!currentUser) {
             history.push("/login")
         } else {
-            // checkout page
+            history.push("/checkout")
         }
     }
+
+    // const reviewList = reviews.map()
 
     return (
         <>
@@ -122,7 +138,18 @@ const ProductShow = props => {
             </div>
             {/* divider for reviews */}
             <hr></hr>
-            {/* customer reviews */}
+            <div className="reviews-container">
+                <div className="review-summary">
+                    <h1>Customer Reviews</h1>
+                    {/* average rating here: stars and text */}
+                </div>
+                <div className="reviews">
+                {/* customer reviews */}
+                {Object.values(reviews).map(review => <ReviewIndexItem review={review}/>)}
+                {/* {reviewList} */}
+                <ProductReviewForm product={product}/>
+                </div>
+            </div>
         </>
     )
 }

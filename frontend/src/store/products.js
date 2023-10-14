@@ -30,20 +30,25 @@ export const fetchProducts = () => async dispatch => {
 export const fetchProduct = productId => async dispatch => {
     const res = await csrfFetch(`/api/products/${productId}`);
     if (res.ok) {
-        console.log("here")
         const product = await res.json();
         dispatch(receiveProduct(product));
+        // const payload = await res.json();
+        // console.log(payload, "here")
+        // dispatch(receiveProduct(payload));
     }
 }
 
 const productsReducer = (state={}, action) => {
-    Object.freeze(state);
-    const nextState = {...state};
+    // Object.freeze(state);
+    let nextState = {...state};
+    // let nextState = Object.assign({}, Object.freeze(state))
     
     switch (action.type) {
         case RECEIVE_PRODUCTS:
             return {...action.products};
         case RECEIVE_PRODUCT:
+            // clear index page's inherited state
+            nextState = {}
             nextState[action.product.id] = action.product;
             return nextState;
         default:

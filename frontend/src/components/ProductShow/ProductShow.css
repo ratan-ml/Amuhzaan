@@ -81,41 +81,6 @@
     font-size: 25px
 }
 
-.review-section {
-    margin: 10px;
-    margin-left: 30px;
-    margin-bottom: 30px;
-    display: flex;
-    justify-content: left
-}
-
-.user-review {
-    padding: 10px 40px 50px;
-    margin: 20px
-}
-
-.user-review h2 {
-    font-weight: bold;
-    padding: 0px 0px 30px;
-    font-size: 20px;
-    border-bottom: 5px
-}
-
-.user-review h3 {
-    font-weight: bold;
-    border-bottom: 5px
-}
-
-.user-review p {
-    margin-top: 10px;
-    margin-bottom: 10px
-}
-
-.review-btn {
-    margin-top: 10px;
-    margin-bottom: 10px
-}
-
 .product-info .show-price {
     font-size: 30px
 }

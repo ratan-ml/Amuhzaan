@@ -4,9 +4,9 @@ const HomePage = () => {
 
     return (
         <>
-            <Link to="categories/test">test</Link>
-            <Link to="categories/test2">test2</Link>
-            <Link to="categories/test3">test5</Link>
+            <Link to="categories/clothing">clothing</Link>
+            <Link to="categories/electronic">electronic</Link>
+            <Link to="categories/book">book</Link>
         </>
     )
 }

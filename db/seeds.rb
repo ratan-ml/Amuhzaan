@@ -26,20 +26,20 @@
     })
     puts "creating more users"
     # More users
-    10.times do 
-        User.create!({
-            name: Faker::Name.name,
-            email: Faker::Internet.unique.email,
-            password: 'password'
-        }) 
-    end
+    User.create!({
+        name: 'demo2',
+        email: 'demo2@user.io', 
+        password: 'password'
+    })
+    puts "creating more users"
+
     puts "creating product"
     10.times do
         Product.create!({
             name: Faker::Book.title,
             description: Faker::Lorem.paragraph(sentence_count: 6),
             price: Faker::Commerce.price(range: 9.99..24.99),
-            category: 'test'
+            category: 'clothing'
         })
     end
 
@@ -48,7 +48,7 @@
             name: Faker::Book.title,
             description: Faker::Lorem.paragraph(sentence_count: 6),
             price: Faker::Commerce.price(range: 9.99..24.99),
-            category: 'test2'
+            category: 'electronic'
         })
     end
 
@@ -57,7 +57,7 @@
             name: Faker::Book.title,
             description: Faker::Lorem.paragraph(sentence_count: 6),
             price: Faker::Commerce.price(range: 9.99..24.99),
-            category: 'test3'
+            category: 'book'
         })
     end
 
