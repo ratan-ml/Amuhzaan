@@ -1,13 +1,15 @@
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 
-const DisplayRating = ({rating}) => {
+const DisplayRating = ({rating, large}) => {
+    const size = large ? "27px" : "20px"
+
     return (
         <span className="review-rating">
-            {[1, 2, 3,4, 5].map(i => {
+            {[1, 2, 3, 4, 5].map(i => {
                 if (i <= rating) {
-                    return <AiFillStar size="20px" color="#ffa41c" />
+                    return <AiFillStar size={size} color="#ffa41c" />
                 } else {
-                    return <AiOutlineStar size="20px" color="#f59721"/>
+                    return <AiOutlineStar size={size} color="#f59721"/>
                 }
             })}
         </span>

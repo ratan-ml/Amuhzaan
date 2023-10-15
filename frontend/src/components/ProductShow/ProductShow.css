@@ -208,11 +208,19 @@ hr {
     font-weight: 700;
     font-size: 21px;
     color: #333;
+    margin-bottom: 5px;
+}
+
+.summary-rating-widget {
+    display: flex;
+    align-content: center;
 }
 
 .summary-text {
     font-size: 18px;
+    font-weight: 500;
     color: #0F1111;
+    padding-top: 6px;
 }
 
 .users-review {
@@ -222,7 +230,6 @@ hr {
 }
 
 .review-section-header {
-    font-weight: 700;
     font-size: 18px;
     margin-bottom: 20px;
 }
@@ -278,4 +285,55 @@ hr {
     word-wrap: break-word;
     margin-bottom: 10px;
     line-height: 1.25;
+}
+
+.review-container button {
+    width: 100px;
+    border-radius: 8px;
+    border-color: #D5D9D9;
+    box-shadow: 0 2px 5px 0 rgba(213,217,217,.5);
+}
+
+.review-container button:hover {
+    background-image: linear-gradient(rgba(0,0,0,0.05) 0 0)
+}
+
+.edit-btn, .save-btn {
+    margin-right: 5px;
+    background-color: #ffd814;
+}
+
+.delete-btn {
+    background-color: #fc9b9b;
+}
+
+
+.edit-review-form input[text],textarea {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 5px;
+    width: 91%;
+    height: 50px;
+}
+
+
+.edit-review-form select {
+    border-radius: 4px;
+    margin-left: 4px;
+    margin-bottom: 5px;
+}
+
+.review-disabled {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+
+.review-form button {
+    width: 100px;
+    border-radius: 8px;
+    background-color: #ffa41c;
+    border-color: #D5D9D9;
+    box-shadow: 0 2px 5px 0 rgba(213,217,217,.5);
 }

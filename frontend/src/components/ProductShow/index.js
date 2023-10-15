@@ -7,6 +7,7 @@ import { getReviews } from "../../store/reviews"
 import ProductReviewForm from "./ProductReviewForm";
 import ReviewIndexItem from "./ReviewIndexItem";
 import "./ProductShow.css";
+import DisplayRating from "./DisplayRating";
 
 // path = /products/:productId
 const ProductShow = () => {
@@ -138,7 +139,10 @@ const ProductShow = () => {
                 <div className="review-summary">
                     <h2 className="summary-header">Customer Reviews</h2>
                     {/* average rating here: stars and text */}
-                    <span className="summary-text">Average rating: {avgRating || 0} out of 5</span>
+                    <div className="summary-rating-widget">
+                        <DisplayRating rating={avgRating} large="true"/>
+                        <span className="summary-text">{avgRating || 0} out of 5</span>
+                    </div>
                 </div>
                 <div className="users-review">
                     {/* customer reviews */}

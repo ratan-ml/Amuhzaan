@@ -37,11 +37,11 @@ const ReviewIndexItem = ({review}) => {
     }
 
     const editButton = reviewer ? (
-        <button onClick={e => setEditMode(true)}>Edit</button>
+        <button className="edit-btn" onClick={e => setEditMode(true)}>Edit</button>
     ) : null
 
     const deleteButton = reviewer ? (
-        <button onClick={handleDeleteReview}>Delete</button>
+        <button className="delete-btn" onClick={handleDeleteReview}>Delete</button>
     ) : null
 
     const options = []
@@ -53,7 +53,8 @@ const ReviewIndexItem = ({review}) => {
         <div className="review-container">
             { editMode ? (
                 <>
-                    <h1>Review this product</h1> 
+                    {/* might move form to modal */}
+                    {/* <h1>Review this product</h1>  */}
                     <form className="edit-review-form" onSubmit={handleEditReview}>
                         <label>Edit headline
                             <input
@@ -64,18 +65,22 @@ const ReviewIndexItem = ({review}) => {
                             />
                         </label>
                         <label>Edit review
+                            <br/>
                             <textarea
                                 value={body}
                                 placeholder="Did you leave the front door open?"
                                 onChange={e => setBody(e.target.value)}
                             />
                         </label>
-                        <label>Edit rating: 
+                        <label className="edit-label">Edit rating: 
                             <select value={rating} onChange={e => setRating(e.target.value)}>
                                 {options}
                             </select>
                         </label>
-                        <button type="submit">Save</button>
+                        <div className="btn-container">
+                            <button className="save-btn" type="submit">Save</button>
+                            {deleteButton}
+                        </div>
                     </form>
                 </>
                 ) : (
@@ -93,11 +98,12 @@ const ReviewIndexItem = ({review}) => {
                     <p className="date">Reviewed in the United States on {formattedDate}</p>
                     <p className="review-text">{body}</p>
                     {editButton}
+                    {deleteButton}
                 </>
                 )
             }
             {/* display delete button if reviewer*/}
-            {deleteButton}
+            {/* {deleteButton} */}
         </div>
     )
 }

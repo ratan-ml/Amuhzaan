@@ -33,9 +33,9 @@ const ProductReviewForm = ({product}) => {
     }
 
     if (!sessionUser) {
-        return <p className="cantReview">Please sign in to review this product!</p>
+        return <p className="review-disabled">Please sign in to review this product.</p>
     } else if (reviewers.includes(sessionUser.id)) {
-        return <p className="cantReview">You've already reviewed this product. Use the buttons above to edit/delete your review!</p>
+        return <p className="review-disabled">Your feedback for this product has been previously submitted. Please utilize the options above to make any necessary adjustments or remove your review.</p>
     }
 
     const options = []
@@ -45,10 +45,10 @@ const ProductReviewForm = ({product}) => {
 
     return (
         <>
-            <h1>Review this product</h1> 
+            {/* <h1>Review this product</h1>  */}
             <form className="review-form" onSubmit={handleAddReviewClick}>
                 <label>Add a headline
-                    <input
+                    <input required
                         type="text"
                         value={title}
                         placeholder="What shall be the title?"
@@ -56,7 +56,7 @@ const ProductReviewForm = ({product}) => {
                     />
                 </label>
                 <label>Add a review
-                    <textarea
+                    <textarea required
                         value={body}
                         placeholder="Did you leave the front door open?"
                         onChange={e => setBody(e.target.value)}
@@ -67,7 +67,7 @@ const ProductReviewForm = ({product}) => {
                         {options}
                     </select>
                 </label>
-                <button type="submit">Submit</button>
+                <button className="submit-btn" type="submit">Submit</button>
             </form>
         </>
     )
