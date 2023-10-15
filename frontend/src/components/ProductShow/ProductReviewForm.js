@@ -1,9 +1,9 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { addReview, getReviews } from "../../store/reviews"
 import { IoIosStar } from 'react-icons/io'
 
-const ProductReviewForm = ({product}) => {
+const ProductReviewForm = ({product, reviewed}) => {
 
     // const productTitle = useSelector(product)
     const dispatch = useDispatch()
@@ -11,8 +11,6 @@ const ProductReviewForm = ({product}) => {
     const [body, setBody] = useState("")
     const [rating, setRating] = useState(1)
     const sessionUser = useSelector(state => state.session.user)
-
-    // const reviews = useSelector(getReviews)
 
     const handleAddReviewClick = e => {
         e.preventDefault();
@@ -32,15 +30,19 @@ const ProductReviewForm = ({product}) => {
         setRating(1);
     }
 
+    if (!sessionUser) {
+        return <p>Please sign in to review this product</p>
+    }
+
     const options = []
     for (let i = 1; i <= 5; i++) {
         options.push(<option value={i}>{i}</option>);
     }
 
-    return (
+    return reviewed ? (
+        null
+        ) : (
         <>
-
-
             <h1>Review this product</h1> 
             <form className="review-form" onSubmit={handleAddReviewClick}>
                 <label>Add a headline
@@ -58,9 +60,11 @@ const ProductReviewForm = ({product}) => {
                         onChange={e => setBody(e.target.value)}
                     />
                 </label>
-                <select value={rating} onChange={e => setRating(e.target.value)}>
-                    {options}
-                </select>
+                <label>Overall rating: 
+                    <select value={rating} onChange={e => setRating(e.target.value)}>
+                        {options}
+                    </select>
+                </label>
                 <button type="submit">Submit</button>
             </form>
         </>

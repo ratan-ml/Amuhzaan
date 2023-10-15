@@ -14,17 +14,21 @@ const ProductShow = () => {
     // console.log(productId)
     const dispatch = useDispatch();
     const history = useHistory(); // equivalent to useNavigate in v6
-    const currentUser = useSelector(state => state.session.user);
+    const sessionUser = useSelector(state => state.session.user);
     const product = useSelector(getProduct(productId));
     const [quantity, setQuantity] = useState(1)
     const reviews = useSelector(getReviews)
     const productReviews = reviews.filter(review => review.productId == productId)
-    const reviewed = productReviews.some(review => review.userId == currentUser.id)
-    
+
+    const [reviewed, setReviewed] = useState(false)
+
 
     useEffect(() => {
         dispatch(fetchProduct(productId));
         // fetchProduct will include reviews in json/jbuilder response
+        if (sessionUser) {
+            setReviewed(productReviews.some(review => review.userId == sessionUser.id))
+        }
     }, [])
 
     if (!product) return <h1>loading...</h1>
@@ -40,10 +44,10 @@ const ProductShow = () => {
     const handleCartClick = e => {
         e.preventDefault();
 
-        if (!currentUser) {
+        if (!sessionUser) {
             history.push("/login");
         } else {
-            const user_id = currentUser.id;
+            const user_id = sessionUser.id;
             const product_id = productId;
             const cartProduct = { user_id, product_id, quantity };
             dispatch(addCartItem(cartProduct));
@@ -54,14 +58,18 @@ const ProductShow = () => {
     const handleBuyClick = e => {
         e.preventDefault()
 
-        if (!currentUser) {
+        if (!sessionUser) {
             history.push("/login")
         } else {
             history.push("/checkout")
         }
     }
 
-    // const reviewList = reviews.map()
+    let totalRating = 0
+    productReviews.forEach(review => {
+        totalRating += review.rating
+    });
+    const avgRating = totalRating / (productReviews.length)
 
     return (
         <>
@@ -136,12 +144,13 @@ const ProductShow = () => {
                 <div className="review-summary">
                     <h1>Customer Reviews</h1>
                     {/* average rating here: stars and text */}
+                    <p>Average rating: {avgRating}</p>
                 </div>
                 <div className="reviews">
                 {/* customer reviews */}
-                {Object.values(productReviews).map(review => <ReviewIndexItem review={review}/>)}
+                {Object.values(productReviews).map(review => <ReviewIndexItem review={review} reviewed={reviewed}/>)}
                 {/* if already reviewed by current user, do not show form */}
-                { reviewed ? null : <ProductReviewForm product={product}/>}
+                <ProductReviewForm product={product} reviewed={reviewed}/>
                 
                 </div>
             </div>
