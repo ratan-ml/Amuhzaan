@@ -11,7 +11,6 @@ import "./ProductShow.css";
 // path = /products/:productId
 const ProductShow = () => {
     const { productId } = useParams();
-    // console.log(productId)
     const dispatch = useDispatch();
     const history = useHistory(); // equivalent to useNavigate in v6
     const sessionUser = useSelector(state => state.session.user);
@@ -20,15 +19,9 @@ const ProductShow = () => {
     const reviews = useSelector(getReviews)
     const productReviews = reviews.filter(review => review.productId == productId)
 
-    const [reviewed, setReviewed] = useState(false)
-
-
     useEffect(() => {
         dispatch(fetchProduct(productId));
         // fetchProduct will include reviews in json/jbuilder response
-        if (sessionUser) {
-            setReviewed(productReviews.some(review => review.userId == sessionUser.id))
-        }
     }, [])
 
     if (!product) return <h1>loading...</h1>
@@ -142,16 +135,16 @@ const ProductShow = () => {
             <hr></hr>
             <div className="reviews-container">
                 <div className="review-summary">
-                    <h1>Customer Reviews</h1>
+                    <h2 className="summary-header">Customer Reviews</h2>
                     {/* average rating here: stars and text */}
-                    <p>Average rating: {avgRating}</p>
+                    <span className="summary-text">Average rating: {avgRating} out of 5</span>
                 </div>
-                <div className="reviews">
-                {/* customer reviews */}
-                {Object.values(productReviews).map(review => <ReviewIndexItem review={review} reviewed={reviewed}/>)}
-                {/* if already reviewed by current user, do not show form */}
-                <ProductReviewForm product={product} reviewed={reviewed}/>
-                
+                <div className="user-reviews">
+                    {/* customer reviews */}
+                    <h1 className="review-section-header">Top reviews from the United States</h1>
+                    {Object.values(productReviews).map(review => <ReviewIndexItem review={review} />)}
+                    {/* if already reviewed by current user, do not show form */}
+                    <ProductReviewForm product={product} />
                 </div>
             </div>
         </>

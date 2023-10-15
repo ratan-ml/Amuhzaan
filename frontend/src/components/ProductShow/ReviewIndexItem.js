@@ -2,15 +2,19 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { deleteReview, updateReview } from "../../store/reviews";
 
-const ReviewIndexItem = ({review, reviewed}) => {
 
+const ReviewIndexItem = ({review}) => {
     const dispatch = useDispatch()
     const sessionUser = useSelector(state => state.session.user)
-    // const reviewer = review.userId == sessionUser.id
+    const reviewer = review.userId == sessionUser?.id
     const [title, setTitle] = useState(review.title)
     const [body, setBody] = useState(review.body)
     const [rating, setRating] = useState(review.rating)
     const [editMode, setEditMode] = useState(false)
+
+    const parsedDate = new Date(review.updatedAt)
+    const opts = { year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = parsedDate.toLocaleString('en-US', opts);
 
     const handleDeleteReview = e => {
         e.preventDefault();
@@ -30,11 +34,11 @@ const ReviewIndexItem = ({review, reviewed}) => {
         dispatch(updateReview(reviewObj))
     }
 
-    const editButton = reviewed ? (
+    const editButton = reviewer ? (
         <button onClick={e => setEditMode(true)}>Edit</button>
     ) : null
 
-    const deleteButton = reviewed ? (
+    const deleteButton = reviewer ? (
         <button onClick={handleDeleteReview}>Delete</button>
     ) : null
 
@@ -74,10 +78,18 @@ const ReviewIndexItem = ({review, reviewed}) => {
                 </>
                 ) : (
                 <>
-                    <h1>this is {review.username}</h1>
-                    <span>Rating: {rating}</span>
-                    <h1>Title: {title}</h1>
-                    <p>Body: {body}</p>
+                    <div className="profile-container">
+                        <img src="https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png" 
+                        class="reviewer-icon" 
+                        />
+                        <span className="reviewer-username">{review.username}</span>
+                    </div>
+                    <div className="rating-row">
+                        <span className="review-rating">Rating: {rating}</span>
+                        <span className="review-title">{title}</span>
+                    </div>
+                    <span className="date">Reviewed in the United States on {formattedDate}</span>
+                    <span className="review-text">{body}</span>
                     {editButton}
                 </>
                 )

@@ -3,7 +3,7 @@
     margin-top: 20px;
     display: grid;
     width: 100%;
-    grid-template: "show-image            product-info          purchase-panel" auto "description-container description-container description-container" auto "review-show-container review-section        review-section " auto / 1fr 1fr 1fr;
+    grid-template: "show-image            product-info          purchase-panel" auto "description-container description-container description-container" auto "reviews-container review-section        review-section " auto / 1fr 1fr 1fr;
 }
 
 .product-show-container .show-image {
@@ -50,8 +50,8 @@
     margin: 0px
 }
 
-.product-show-container .review-show-container {
-    grid-area: review-show-container
+.product-show-container .reviews-container {
+    grid-area: reviews-container
 }
 
 .product-info {
@@ -183,6 +183,80 @@ hr {
     position: relative;
 }
 
-/* .product-info h1 {
 
-} */
+
+
+
+
+
+
+/* Review Section */
+.reviews-container {
+    display: flex;
+    /* flex-direction: row; */
+}
+
+.review-summary {
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    /* width: 30%; */
+    margin: 18px;
+}
+
+.summary-header {
+    font-weight: 700;
+    font-size: 21px;
+    color: #333;
+}
+
+.summary-text {
+    font-size: 18px;
+    color: #0F1111;
+}
+
+.user-reviews {
+    padding: 10px 40px 50px;
+    margin: 10px;
+    width: 500px;
+}
+
+.review-section-header {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+
+.review-container {
+    margin-bottom: 15px;
+}
+
+.profile-container {
+    display: flex;
+    align-content: center;
+}
+
+.reviewer-icon {
+    height: 30px;
+    width: 30px;
+    padding-right: 10px;
+}
+
+.reviewer-username {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 14px;
+}
+
+
+.review-title {
+    font-weight: 700;
+    font-size: 14px;
+    color: #0F1111;
+}
+
+.review-text {
+    font-size: 14px;
+    word-wrap: break-word;
+}

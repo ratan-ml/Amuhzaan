@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { addReview, getReviews } from "../../store/reviews"
 import { IoIosStar } from 'react-icons/io'
 
-const ProductReviewForm = ({product, reviewed}) => {
+const ProductReviewForm = ({product}) => {
 
     // const productTitle = useSelector(product)
     const dispatch = useDispatch()
@@ -11,6 +11,10 @@ const ProductReviewForm = ({product, reviewed}) => {
     const [body, setBody] = useState("")
     const [rating, setRating] = useState(1)
     const sessionUser = useSelector(state => state.session.user)
+
+    const reviews = useSelector(getReviews);
+    const reviewers = reviews.map(review => review.userId);
+
 
     const handleAddReviewClick = e => {
         e.preventDefault();
@@ -31,7 +35,9 @@ const ProductReviewForm = ({product, reviewed}) => {
     }
 
     if (!sessionUser) {
-        return <p>Please sign in to review this product</p>
+        return <p className="cantReview">Please sign in to review this product!</p>
+    } else if (reviewers.includes(sessionUser.id)) {
+        return <p className="cantReview">You've already reviewed this product. Use the buttons above to edit/delete your review!</p>
     }
 
     const options = []
@@ -39,9 +45,7 @@ const ProductReviewForm = ({product, reviewed}) => {
         options.push(<option value={i}>{i}</option>);
     }
 
-    return reviewed ? (
-        null
-        ) : (
+    return (
         <>
             <h1>Review this product</h1> 
             <form className="review-form" onSubmit={handleAddReviewClick}>
