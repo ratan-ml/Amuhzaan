@@ -64,6 +64,7 @@ const ProductShow = () => {
     });
     const avgRating = totalRating / (productReviews.length)
 
+
     return (
         <>
             <div className="product-show-container">
@@ -137,7 +138,7 @@ const ProductShow = () => {
                 <div className="review-summary">
                     <h2 className="summary-header">Customer Reviews</h2>
                     {/* average rating here: stars and text */}
-                    <span className="summary-text">Average rating: {avgRating} out of 5</span>
+                    <span className="summary-text">Average rating: {avgRating || 0} out of 5</span>
                 </div>
                 <div className="users-review">
                     {/* customer reviews */}

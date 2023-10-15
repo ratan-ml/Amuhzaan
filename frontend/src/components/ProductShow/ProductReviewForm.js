@@ -4,8 +4,6 @@ import { addReview, getReviews } from "../../store/reviews"
 import { IoIosStar } from 'react-icons/io'
 
 const ProductReviewForm = ({product}) => {
-
-    // const productTitle = useSelector(product)
     const dispatch = useDispatch()
     const [title, setTitle] = useState("")
     const [body, setBody] = useState("")

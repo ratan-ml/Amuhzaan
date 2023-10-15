@@ -8,7 +8,6 @@ import "./ProductIndex.css";
 // path = /categories/:categoryName
 const ProductIndex = () => {
     const dispatch = useDispatch()
-    // explain how the pathing works
     const { categoryName } = useParams()
     const products = useSelector(getProducts)
     const category = products.filter(product => product.category === categoryName)

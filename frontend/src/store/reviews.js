@@ -73,12 +73,13 @@ export const deleteReview = reviewId => async dispatch => {
 
 const reviewReducer = (state={}, action) => {
     Object.freeze(state);
-    const nextState = {...state}
+    let nextState = {...state}
 
     switch (action.type) {
         // case RECEIVE_REVIEWS:
         //     return {...action.reviews};
         case RECEIVE_PRODUCT:
+            nextState = {}
             return {...nextState, ...action.payload.reviews}
         case RECEIVE_REVIEW:
             // nextState[action.review.id] = action.review;

@@ -1,9 +1,14 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom"
+import { getReviews } from "../../store/reviews";
+import DisplayRating from "../ProductShow/DisplayRating";
 
 // figure out how to implement images
 
 const ProductIndexItem = ({product}) => {
 
+    const reviews = useSelector(getReviews)
+    console.log(reviews)
     const price = product.price.toFixed(2).toString();
     const [whole, fraction] = price.split('.');
 
@@ -23,7 +28,7 @@ const ProductIndexItem = ({product}) => {
                     <Link to={`/products/${product.id}`}>{product.name}</Link>
                 </h3>
                 {/* product overall rating */}
-                <div>★★★☆☆</div>
+                <DisplayRating rating={product.rating}/>
                 {/* product pricing */}
                 <div className="product-price">
                     <span className="price-symbol">$</span>
