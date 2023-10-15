@@ -139,7 +139,7 @@ const ProductShow = () => {
                     {/* average rating here: stars and text */}
                     <span className="summary-text">Average rating: {avgRating} out of 5</span>
                 </div>
-                <div className="user-reviews">
+                <div className="users-review">
                     {/* customer reviews */}
                     <h1 className="review-section-header">Top reviews from the United States</h1>
                     {Object.values(productReviews).map(review => <ReviewIndexItem review={review} />)}

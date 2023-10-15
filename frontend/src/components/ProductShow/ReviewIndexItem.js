@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { deleteReview, updateReview } from "../../store/reviews";
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 
 
 const ReviewIndexItem = ({review}) => {
@@ -85,11 +86,19 @@ const ReviewIndexItem = ({review}) => {
                         <span className="reviewer-username">{review.username}</span>
                     </div>
                     <div className="rating-row">
-                        <span className="review-rating">Rating: {rating}</span>
+                        <span className="review-rating">
+                            {[1, 2,3,4, 5].map(i => {
+                                if ((i + 1) <= rating) {
+                                    return <AiFillStar className="filled-star" size="20px" color="#ffa41c" />
+                                } else {
+                                    return <AiOutlineStar size="20px" color="#f59721"/>
+                                }
+                            })}
+                        </span>
                         <span className="review-title">{title}</span>
                     </div>
-                    <span className="date">Reviewed in the United States on {formattedDate}</span>
-                    <span className="review-text">{body}</span>
+                    <p className="date">Reviewed in the United States on {formattedDate}</p>
+                    <p className="review-text">{body}</p>
                     {editButton}
                 </>
                 )

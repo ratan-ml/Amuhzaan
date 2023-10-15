@@ -215,7 +215,7 @@ hr {
     color: #0F1111;
 }
 
-.user-reviews {
+.users-review {
     padding: 10px 40px 50px;
     margin: 10px;
     width: 500px;
@@ -249,14 +249,33 @@ hr {
     font-size: 14px;
 }
 
+.rating-row {
+    display: flex;
+    align-content: center;
+}
+
+.review-rating {
+    padding-right: 8px;
+}
 
 .review-title {
     font-weight: 700;
     font-size: 14px;
     color: #0F1111;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.date {
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 7px;
+    color: #565959;
 }
 
 .review-text {
     font-size: 14px;
     word-wrap: break-word;
+    margin-bottom: 10px;
+    line-height: 1.25;
 }
