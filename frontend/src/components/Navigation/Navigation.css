@@ -118,3 +118,100 @@
     font-weight: bold;
     z-index: 20;
 }
+
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .nav-link-account {
+    border: none;
+    outline: none;
+    color: white;
+    padding: 10px 7px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.nav-line-1 {
+    font-size: 12px;
+}
+
+.nav-line-2 {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.nav-line-2 svg {
+    padding-left: 3px;
+    vertical-align: -2px;
+}
+
+/* Style the dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    min-height: 80px;
+    border-radius: 4px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown:hover {
+    border: 0.5px solid white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.dropdown:hover .dropdown-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown-content .menu-login {
+    color: black;
+    font-size: 13px;
+}
+
+.dropdown-content .menu-login:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+.dropdown-content .menu-signup {
+    color: #007bff;
+    padding-left: 5px;
+}
+
+.dropdown-content .menu-signup:hover {
+    color: #ff4500;
+    text-decoration: underline;
+}
+
+.new-customer {
+    font-size: 11px;
+    margin-top: 10px;
+}
+
+.menu-login-container {
+    background-color: #ffd814;
+    width: 70%;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgba(213,217,217,.5);
+    cursor: pointer;
+    display: inline-block;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 30px;
+}
+
+.menu-login-container:hover {
+    background-image: linear-gradient(rgba(0,0,0,0.05) 0 0)
+}

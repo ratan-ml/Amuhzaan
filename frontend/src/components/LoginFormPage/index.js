@@ -72,8 +72,9 @@ const LoginFormPage = () => {
                         />
                     </label>
                     <button className="login-btn" type="submit">Log In</button>
+                    <button className="demo-btn" onClick={handleDemo}>Demo Login</button>
                 </form>
-                <button className="demo-btn" onClick={handleDemo}>Demo Login</button>
+                
                 {/* <p className="login-agreement">
                     By continuing, you agree to Amuhzaan's Conditions of Use and Privacy Notice.
                 </p> */}

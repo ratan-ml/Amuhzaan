@@ -3,11 +3,11 @@ import { useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
 import { updateCartItem, deleteCartItem } from "../../store/cart_items"
 
-
 const CartIndexItem = ({cartItem}) => {
     const dispatch = useDispatch()
     const [quantity, setQuantity] = useState(cartItem.quantity)
     const [inputMode, setInputMode] = useState(false)
+    
 
     useEffect(()=> {
         setQuantity(cartItem.quantity)
@@ -18,8 +18,6 @@ const CartIndexItem = ({cartItem}) => {
     for (let i = 1; i <= 10; i++) {
         options.push(<option value={i}>{i}</option>);
     }
-
-    // const isInputMode = quantity > 10
 
     if (quantity < 1) setQuantity(1)
 

@@ -83,15 +83,18 @@ input[type="password"]:focus {
     background-color: #ffd814;
     border-radius: 7px;
     border-color: #ffd814;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    width: 96%;
 }
 
 .demo-btn {
     background-color: #ddd8d8;
+    border: none;
     border-radius: 7px;
     border-color: hsl(60, 1%, 20%);
     opacity: 90%;
     margin-bottom: 5px;
+    width: 96%;
 }
 
 .login-btn:hover {
