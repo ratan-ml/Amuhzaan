@@ -5,12 +5,17 @@ import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import logo from '../../assets/logo.png';
 import cart from '../../assets/cart.png';
+import { FaMagnifyingGlass } from 'react-icons/fa6';
+import { getCartItems } from '../../store/cart_items';
 
 const Navigation = () => {
     const sessionUser = useSelector(state => state.session.user);
     const dispatch = useDispatch()
     const history = useHistory()
     const [term, setTerm] = useState("")
+    const cartItems = useSelector(getCartItems)
+    let quantity = 0
+    cartItems.map(item => quantity += item.quantity)
 
     useEffect(()=> {
 
@@ -43,11 +48,11 @@ const Navigation = () => {
     return (
         <div>
             <div className="top-navbar">
-                <div >
+                <div className="nav-left">
                     <NavLink to="/"><img className="home-logo" src={logo} alt='logo' /></NavLink>
                 </div>
                 
-                <div>
+                <div className="nav-search">
                     <form className="search-form" onSubmit={handleSearch}>
                         <input
                             type="text"
@@ -55,14 +60,20 @@ const Navigation = () => {
                             value={term}
                             onChange={e => setTerm(e.target.value)}
                         />
-                        <button type="submit">find</button>
+                        <button type="submit">
+                            <FaMagnifyingGlass size="18px"/>
+                        </button>
+                        
                     </form>
                 </div>
 
-                <div className="others">
-                    {sessionLinks}
+                <div className="user-widgets">
+                    <div>
+                        {sessionLinks}
+                    </div>
                     <div className="cart-set">
-                        <NavLink to="/cart">
+                        <p>{cartItems.length === 0 || sessionUser === null ? 0 : quantity}</p>
+                        <NavLink style={{position:'relative'}} to="/cart">
                             <img className="cart-icon" src={cart}/>
                             <span className="cart-icon-name">Cart</span>
                         </NavLink>
