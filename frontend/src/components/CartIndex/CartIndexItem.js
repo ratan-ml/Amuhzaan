@@ -7,9 +7,11 @@ import { updateCartItem, deleteCartItem } from "../../store/cart_items"
 const CartIndexItem = ({cartItem}) => {
     const dispatch = useDispatch()
     const [quantity, setQuantity] = useState(cartItem.quantity)
+    const [inputMode, setInputMode] = useState(false)
 
     useEffect(()=> {
         setQuantity(cartItem.quantity)
+        if (quantity > 10) setInputMode(true)
     },[cartItem])
 
     const options = []
@@ -17,7 +19,8 @@ const CartIndexItem = ({cartItem}) => {
         options.push(<option value={i}>{i}</option>);
     }
 
-    const isInputMode = quantity > 10
+    // const isInputMode = quantity > 10
+
     if (quantity < 1) setQuantity(1)
 
 
@@ -32,6 +35,11 @@ const CartIndexItem = ({cartItem}) => {
     const handleDeleteClick = e => {
         e.preventDefault()
         dispatch(deleteCartItem(cartItem.id))
+    }
+
+    const handleInputState = e => {
+        e.preventDefault()
+        if (quantity < 11) setInputMode(false)
     }
 
     return (
@@ -50,14 +58,18 @@ const CartIndexItem = ({cartItem}) => {
                     </div>
                     
                     <div className="item-update">
-                        Qty: { isInputMode ? (
-                            <input
-                                type="number"
-                                className="item-input"
-                                value={quantity}
-                                onChange={handleQuantityChange}
-                                min={1}
-                            />
+                        <span className="qty-name">Qty:</span>
+                        { inputMode ? (
+                            <form className="edit-qty-form" onSubmit={handleInputState}>
+                                <input
+                                    type="number"
+                                    className="item-input"
+                                    value={quantity}
+                                    onChange={handleQuantityChange}
+                                    min={1}
+                                />
+                                <button className="update-btn" type="submit">Update</button>
+                            </form>
 
                         ) : (
                             <select className="select-qty" value={quantity} onChange={handleQuantityChange}>

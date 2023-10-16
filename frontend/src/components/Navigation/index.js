@@ -45,6 +45,8 @@ const Navigation = () => {
         }
     }
 
+    const cartAccess = sessionUser ? "/cart" : "/login"
+
     return (
         <div>
             <div className="top-navbar">
@@ -73,7 +75,7 @@ const Navigation = () => {
                     </div>
                     <div className="cart-set">
                         <p>{cartItems.length === 0 || sessionUser === null ? 0 : quantity}</p>
-                        <NavLink style={{position:'relative'}} to="/cart">
+                        <NavLink style={{position:'relative'}} to={cartAccess}>
                             <img className="cart-icon" src={cart}/>
                             <span className="cart-icon-name">Cart</span>
                         </NavLink>

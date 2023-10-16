@@ -64,7 +64,8 @@
 }
 
 .item-input {
-    width: 60px;
+    width: 50px;
+    margin-right: 5px;
 }
 
 .select-qty {
@@ -135,6 +136,36 @@ a:hover {
     height: 30px;
 }
 
+.update-btn {
+    background-color: #ffd814;
+    border-radius: 8px;
+    border-color: #ffd814;
+    /* margin-top: 10px; */
+    /* margin-bottom: 5px; */
+    /* height: 30px; */
+    width: 60px;
+}
+
 .checkout-btn:hover {
     background-image: linear-gradient(rgba(0,0,0,0.05) 0 0)
+}
+
+.update-btn:hover {
+    background-image: linear-gradient(rgba(0,0,0,0.05) 0 0)
+}
+
+.item-update {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.edit-qty-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.qty-name {
+    padding-right: 5px;
 }
