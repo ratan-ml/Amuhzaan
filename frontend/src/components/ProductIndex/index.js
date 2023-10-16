@@ -26,12 +26,15 @@ const ProductIndex = () => {
 
 
     return (
-        <div className="category-container">
+        <>
             <h1 className="category-header">{categoryName}</h1>
-            <div className="product-index">
-                {category.map(product=><ProductIndexItem product={product} />)}
+            <div className="category-container">
+                
+                <div className="product-index">
+                    {category.map(product=><ProductIndexItem product={product} />)}
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 

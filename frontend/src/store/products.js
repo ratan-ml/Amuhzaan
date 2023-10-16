@@ -47,7 +47,7 @@ const productsReducer = (state={}, action) => {
             return {...action.products};
         case RECEIVE_PRODUCT:
             // clear index page's inherited state
-            nextState = {}
+            // nextState = {}
             // console.log(action)
             // nextState[action.payload.product.id] = action.payload.product;
             // return nextState;

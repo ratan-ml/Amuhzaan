@@ -9,6 +9,7 @@ import ProductShow from './components/ProductShow';
 import CartIndex from './components/CartIndex';
 import CheckoutPage from './components/CheckoutPage';
 import HomePage from './components/HomePage';
+import SearchResults from './components/SearchResults';
 
 
 function App() {
@@ -33,6 +34,9 @@ function App() {
           </Route>
           <Route exact path="/checkout">
             <CheckoutPage />
+          </Route>
+          <Route exact path="/search/:term">
+            <SearchResults />
           </Route>
           <Route exact path="/">
             <HomePage />

@@ -6,7 +6,7 @@
         # TO INVESTIGATE
         # json.photoUrl product.photo.attached? ? product.photo.url : nil
 
-        reviews = product.reviews
+        reviews = product.reviews.includes(:product)
 
         sum = 0
         reviews.each do |review|
