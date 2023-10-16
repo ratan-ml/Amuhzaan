@@ -34,9 +34,28 @@
     puts "creating more users"
 
     puts "creating product"
+
+
     10.times do
         Product.create!({
             name: Faker::Book.title,
+            feature: [
+                Faker::Lorem.paragraph(sentence_count: 6),
+                Faker::Lorem.paragraph(sentence_count: 6),
+                Faker::Lorem.paragraph(sentence_count: 6)],
+            description: Faker::Lorem.paragraph(sentence_count: 6),
+            price: Faker::Commerce.price(range: 9.99..24.99),
+            category: 'electronics'
+        })
+    end
+
+    10.times do
+        Product.create!({
+            name: Faker::Book.title,
+            feature: [
+                Faker::Lorem.paragraph(sentence_count: 6),
+                Faker::Lorem.paragraph(sentence_count: 6),
+                Faker::Lorem.paragraph(sentence_count: 6)],
             description: Faker::Lorem.paragraph(sentence_count: 6),
             price: Faker::Commerce.price(range: 9.99..24.99),
             category: 'clothing'
@@ -46,18 +65,39 @@
     10.times do
         Product.create!({
             name: Faker::Book.title,
+            feature: [
+                Faker::Lorem.paragraph(sentence_count: 6),
+                Faker::Lorem.paragraph(sentence_count: 6),
+                Faker::Lorem.paragraph(sentence_count: 6)],
             description: Faker::Lorem.paragraph(sentence_count: 6),
             price: Faker::Commerce.price(range: 9.99..24.99),
-            category: 'electronic'
+            category: 'home'
         })
     end
 
     10.times do
         Product.create!({
             name: Faker::Book.title,
+            feature: [
+                Faker::Lorem.paragraph(sentence_count: 6),
+                Faker::Lorem.paragraph(sentence_count: 6),
+                Faker::Lorem.paragraph(sentence_count: 6)],
             description: Faker::Lorem.paragraph(sentence_count: 6),
             price: Faker::Commerce.price(range: 9.99..24.99),
-            category: 'book'
+            category: 'books'
+        })
+    end
+
+    10.times do
+        Product.create!({
+            name: Faker::Book.title,
+            feature: [
+                Faker::Lorem.paragraph(sentence_count: 6),
+                Faker::Lorem.paragraph(sentence_count: 6),
+                Faker::Lorem.paragraph(sentence_count: 6)],
+            description: Faker::Lorem.paragraph(sentence_count: 6),
+            price: Faker::Commerce.price(range: 9.99..24.99),
+            category: 'sports'
         })
     end
 

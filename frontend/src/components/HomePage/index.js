@@ -5,8 +5,8 @@ const HomePage = () => {
     return (
         <>
             <Link to="categories/clothing">clothing</Link>
-            <Link to="categories/electronic">electronic</Link>
-            <Link to="categories/book">book</Link>
+            <Link to="categories/electronics">electronic</Link>
+            <Link to="categories/books">book</Link>
         </>
     )
 }

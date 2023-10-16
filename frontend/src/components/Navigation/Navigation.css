@@ -10,15 +10,33 @@
     background-color: #131921;
 }
 
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
 .home-logo {
     width: 120px;
     height: 47px;
     padding-top: 4px;
+    margin-right: 20px;
 }
 
 .home-logo:hover {
     border: 1px solid white;
     border-radius: 3px;
+}
+
+.linkedin {
+    height: 35px;
+    width: 35px;
+    padding-right: 10px;
+}
+
+.github {
+    height: 35px;
+    width: 35px;
+    border-radius: 5px;
 }
 
 .nav-search {
@@ -51,8 +69,8 @@
     width: 60px;
     height: 35px;
 
-    border-top-right-radius: 4px; /* Adjust the value as needed */
-    border-bottom-right-radius: 4px; /* Adjust the value as needed */
+    border-top-right-radius: 4px; 
+    border-bottom-right-radius: 4px; 
     background: transparent;
     border: none;
     outline: none;
@@ -214,4 +232,46 @@
 
 .menu-login-container:hover {
     background-image: linear-gradient(rgba(0,0,0,0.05) 0 0)
+}
+
+.dropdown-content .menu-logout {
+    width: 70%;
+    background-color: #ffd814;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 2px 5px 0 rgba(213,217,217,.5);
+    line-height: 30px;
+    padding: 0;
+}
+
+.dropdown-content p {
+    padding-top: 5px;
+    font-size: 11px;
+}
+
+.navbar-category-container {
+    display: flex;
+    justify-content: space-around;
+    background-color: #232f3e;
+    align-items: center;
+}
+
+.nav-category {
+    padding: 10px 7px;
+    border: 1px solid transparent;
+}
+
+.category-link {
+    color: white;
+}
+
+.category-link:hover {
+    color: white;
+}
+
+.nav-category:hover {
+    border: 0.5px solid white;
+    border-radius: 3px;
+    cursor: pointer;
+
 }

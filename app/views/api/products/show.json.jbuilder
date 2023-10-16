@@ -1,5 +1,5 @@
 json.product do 
-    json.extract! @product, :id, :category, :name, :description, :price
+    json.extract! @product, :id, :category, :name, :feature, :description, :price
 end
 
 # reviews = @product.reviews.where(product_id: @product.id)

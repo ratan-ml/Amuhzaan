@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import logo from '../../assets/logo.png';
 import cart from '../../assets/cart.png';
 import { FaMagnifyingGlass } from 'react-icons/fa6';
 import { getCartItems } from '../../store/cart_items';
 import { AiFillCaretDown } from 'react-icons/ai';
+import * as sessionActions from '../../store/session';
+import linkedinIcon from '../../assets/linkedin.png';
+import githubIcon from '../../assets/github.png';
 
 const Navigation = () => {
     const sessionUser = useSelector(state => state.session.user);
@@ -26,27 +28,30 @@ const Navigation = () => {
         "Sports and Outdoors": "sports"
     }
 
-    useEffect(()=> {
+    // useEffect(()=> {
 
-    },[])
+    // },[])
 
-    let sessionLinks;
-    
-    if (sessionUser) {
-        sessionLinks = (
-            <ProfileButton user={sessionUser} />
-        );
-        } else {
-        sessionLinks = (
-            <>
-            <NavLink to="/login">Log In</NavLink>
-            <NavLink to="/signup">Sign Up</NavLink>
-            </>
-        );
-    }
+    const handleLogout = (e) => {
+        e.preventDefault();
+        dispatch(sessionActions.logout());
+    };
 
     const displayUser = sessionUser ? (
         <>
+            <div className="nav-link-account">
+                <div className="nav-line-1-container">
+                    <span className="nav-line-1">Hello, {sessionUser.name}</span>
+                </div>
+                <span className="nav-line-2">
+                    Account & Lists
+                    <AiFillCaretDown size="11px" color="#a7acb2"/>
+                </span>
+            </div>
+            <div className="dropdown-content">
+                <button className="menu-logout" onClick={handleLogout}>Logout</button>
+                <p>See you later! ヾ( ´･ω･｀)</p>
+            </div>
         </>
     ) : (
         <>
@@ -86,7 +91,10 @@ const Navigation = () => {
         <div>
             <div className="top-navbar">
                 <div className="nav-left">
-                    <NavLink to="/"><img className="home-logo" src={logo} alt='logo' /></NavLink>
+                    <NavLink to="/"><img className="home-logo" src={logo} alt='amznLogo' /></NavLink>
+                    <a href="https://linkedin.com/in/raymondtan-py"><img className="linkedin" src={linkedinIcon} alt='linkedinLogo' /></a>
+                    <a href="https://github.com/ratan-ml"><img className="github" src={githubIcon} alt='githubLogo' /></a>
+                    
                 </div>
                 
                 <div className="nav-search">
@@ -116,6 +124,15 @@ const Navigation = () => {
                         </NavLink>
                     </div>
                 </div>
+            </div>
+            <div className="navbar-category-container">
+                {Object.entries(categories).map(([category, param]) => 
+                    <div className="nav-category">
+                        <NavLink className="category-link" to={`/categories/${param}`}>
+                            {category}
+                        </NavLink>
+                    </div>
+                )}
             </div>
 
 
