@@ -3,10 +3,7 @@
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Automatically spaces contents evenly */
     gap: 10px;
     padding: 5px;
-
-    /* display: flex;
-    justify-content: space-between;
-    padding: 10px; */
+    min-width: 800px;
     background-color: #131921;
 }
 
@@ -105,6 +102,9 @@
     margin-right: 10px;
     margin-left: 5px;
     border: 1px solid transparent;
+    min-width: 70px; /* Set a minimum width to prevent shifting */
+    overflow: hidden; /* Hide content that exceeds the minimum width */
+    position: relative; /* Use relative positioning */
 }
 
 .cart-set:hover {
@@ -129,12 +129,13 @@
     position: absolute;
     text-align: center;
     width: 50px;
-    right: 46px;
-    top: 18px;
+    right: 30px;
+    top: 12px; /* Use a negative top margin to move the number up */
     font-size: 18px;
     color: #ed8605;
     font-weight: bold;
     z-index: 20;
+    margin: 0 auto; /* Center the text horizontally */
 }
 
 
@@ -254,6 +255,7 @@
     justify-content: space-around;
     background-color: #232f3e;
     align-items: center;
+    min-width: 780px;
 }
 
 .nav-category {
