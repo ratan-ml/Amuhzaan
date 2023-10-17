@@ -45,7 +45,7 @@ const ProductShow = () => {
             const product_id = productId;
             const cartProduct = { user_id, product_id, quantity };
             dispatch(addCartItem(cartProduct));
-            history.push("/cart") // check if cart received item
+            // history.push("/cart") // check if cart received item
         }
     }
 

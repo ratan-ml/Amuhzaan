@@ -114,13 +114,13 @@ const Navigation = () => {
                     <div className="dropdown">
                         {displayUser}
                     </div>
-                    <div className="cart-set">
-                        <p>{cartItems.length === 0 || sessionUser === null ? 0 : quantity}</p>
-                        <NavLink style={{position:'relative'}} to={cartAccess}>
+                    <NavLink to={cartAccess}>
+                        <div className="cart-set">
+                            <p>{cartItems.length === 0 || sessionUser === null ? 0 : quantity}</p>
                             <img className="cart-icon" src={cart}/>
                             <span className="cart-icon-name">Cart</span>
-                        </NavLink>
-                    </div>
+                        </div>
+                    </NavLink>
                 </div>
             </div>
             <div className="navbar-category-container">
