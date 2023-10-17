@@ -1,12 +1,14 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import banner1 from '../../assets/home-banner-1.1.jpg';
+import './HomePage.css';
 
 const HomePage = () => {
 
     return (
         <>
-            <Link to="categories/clothing">clothing</Link>
-            <Link to="categories/electronics">electronic</Link>
-            <Link to="categories/books">book</Link>
+            <div className="banner-container">
+                <img src={banner1} alt=""/>
+            </div>
         </>
     )
 }

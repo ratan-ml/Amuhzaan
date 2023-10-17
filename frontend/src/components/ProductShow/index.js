@@ -76,14 +76,18 @@ const ProductShow = () => {
                 <div className="product-info">
                     <h1 className="show-title">{product.name}</h1>
                     {/* average rating */}
+                    <div className="show-avg-rating">
+                        <span className="avg-rating-text">{avgRating || null}</span> 
+                        <DisplayRating rating={avgRating}/>
+                    </div>
                     <div className="show-price">
                         <span className="price-symbol">$</span>
                         <span className="price-whole">{whole}</span>
                         <span className="price-fraction">{fraction}</span>
                     </div>
-                    <h1>About this item</h1>
+                    <h1 className="product-about">About this item</h1>
                     <ul className="feature-list">
-                        <li>{product.description}</li>
+                        {product.feature.map(feature => <li>{feature}</li>)}
                     </ul>
                 </div>
 

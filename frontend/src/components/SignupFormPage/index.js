@@ -3,6 +3,7 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, NavLink } from 'react-router-dom';
 import './SignupForm.css';
+import logo from '../../assets/black-logo.png';
 
 const SignupFormPage = () => {
     const dispatch = useDispatch();
@@ -41,7 +42,7 @@ const SignupFormPage = () => {
         <div className="login-container">
             <div className="login-logo">
                 <NavLink to="/">
-                    Amzn Logo
+                    <img className="clone-logo" src={logo} alt=""/>
                 </NavLink>
             </div>
                         <div className={`error-container ${error_border}`}>

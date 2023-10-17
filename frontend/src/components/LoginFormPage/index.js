@@ -3,6 +3,7 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, NavLink } from 'react-router-dom';
 import './LoginForm.css';
+import logo from '../../assets/black-logo.png';
 
 const LoginFormPage = () => {
     const dispatch = useDispatch();
@@ -40,8 +41,8 @@ const LoginFormPage = () => {
     return (
         <div className="login-container">
             <div className="login-logo">
-                <NavLink to="/">
-                    Amzn Logo
+                <NavLink  to="/">
+                    <img className="clone-logo" src={logo} alt=""/>
                 </NavLink>
             </div>
             <div className={`error-container ${error_border}`}>

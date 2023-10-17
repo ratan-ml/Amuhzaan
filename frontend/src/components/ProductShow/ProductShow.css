@@ -3,7 +3,7 @@
     margin-top: 20px;
     display: grid;
     width: 100%;
-    grid-template: "show-image            product-info          purchase-panel" auto "description-container description-container description-container" auto "reviews-container review-section        review-section " auto / 1fr 1fr 1fr;
+    grid-template: "show-image            product-info          purchase-panel" auto "description-container description-container description-container" auto "reviews-container review-section        review-section " auto / 1fr 4fr 1fr;
 }
 
 .product-show-container .show-image {
@@ -16,9 +16,6 @@
     padding-left: 30px;
 }
 
-.product-show-container .gift label {
-    margin-left: 5px
-}
 
 .product-show-container .product-info {
     grid-area: product-info
@@ -67,13 +64,28 @@
     margin-bottom: 10px
 }
 
+.show-avg-rating {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.avg-rating-text {
+    padding-right: 3px;
+}
+
+.feature-list {
+    list-style: disc;
+}
+
 .product-info li {
     width: 100%;
     font-size: 14px;
     list-style-position: inside;
-    padding: 10px 0 10px 25px;
+    padding: 10px 0 0 25px;
     text-indent: -1.5em;
-    line-height: 1.2
+    line-height: 1.2;
 }
 
 .show-title {
@@ -87,6 +99,11 @@
 
 .show-price {
     position: relative
+}
+
+.product-about {
+    font-weight: 700;
+    margin-top: 5px;
 }
 
 @media (max-width: 650px) {

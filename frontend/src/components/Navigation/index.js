@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import './Navigation.css';
@@ -28,9 +28,6 @@ const Navigation = () => {
         "Sports and Outdoors": "sports"
     }
 
-    // useEffect(()=> {
-
-    // },[])
 
     const handleLogout = (e) => {
         e.preventDefault();
@@ -66,7 +63,8 @@ const Navigation = () => {
             </div>
             <div className="dropdown-content">
                 <NavLink className="menu-login-container" to="/login">
-                    <a className="menu-login" href="/login">Sign in</a>
+                    <span className="login-text">Sign in</span>
+                    {/* <a className="menu-login" href="/login">Sign in</a> */}
                 </NavLink>
                 <div className="new-customer">
                     New Customer?
