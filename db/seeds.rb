@@ -103,8 +103,8 @@ end
 
 # Electronics
 electronics1 = Product.create(
-    title: "FMotorola Moto G Stylus 5G | 2021 | 2-Day Battery | Unlocked | Made for US 4/128GB | 48MP Camera | Cosmic Emerald",
-    bullet: [
+    name: "FMotorola Moto G Stylus 5G | 2021 | 2-Day Battery | Unlocked | Made for US 4/128GB | 48MP Camera | Cosmic Emerald",
+    feature: [
         "Carrier Compatibility: AT&T (4G, VoLTE), Verizon (5G sub6 NSA, VoLTE), T-Mobile (5G sub6 SA/NSA, VoLTE, WiFi Calling, Video Calling), Tracfone (GSM, CDMA), Spectrum (5G sub6 NSA, VoLTE, WiFi Calling). Not supported: U.S. Cellular, Republic Wireless, Xfinity Wireless.",
         "Performance: Powered by Qualcomm Snapdragon 480 5G processor for ultra-fast 5G speed, streaming, and downloads.",
         "Built-in Stylus: Perfect for navigation, highlighting, editing, and precise tasks. Use it for jotting notes, editing photos, sketching, and controlling apps and games.",
@@ -117,8 +117,8 @@ electronics1 = Product.create(
 )
 
 electronics2 = Product.create(
-    title: "SAMSUNG Galaxy A54 5G A Series Cell Phone, Factory Unlocked Android Smartphone, 128GB w/ 6.4” Fluid Display Screen, Hi Res Camera, Long Battery Life, Refined Design, US Version, 2023, Awesome Black",
-    bullet: [
+    name: "SAMSUNG Galaxy A54 5G A Series Cell Phone, Factory Unlocked Android Smartphone, 128GB w/ 6.4” Fluid Display Screen, Hi Res Camera, Long Battery Life, Refined Design, US Version, 2023, Awesome Black",
+    feature: [
         "CRISP DETAIL, CLEAR DISPLAY: Enjoy binge-watching on a clear, 6.4\" screen* that provides a smooth entertainment experience; Scroll through social feeds and watch action-packed movies, catching all the details you need on your Galaxy A54 5G",
         "PRO SHOTS WITH EASE: Brilliant sunrises, awesome selfies — capture incredible content with Galaxy A54 5G; Snap clear images with Single Take** and OIS, and even take shots in low light with Nightography",
         "CHARGE UP AND CHARGE ON: Always be ready for an impromptu photo op or newly released video with a powerful battery that has your back; With a long-lasting, Super Fast Charging*** 5,000mAh battery, Galaxy A54 5G keeps you up and running",
@@ -131,8 +131,8 @@ electronics2 = Product.create(
 )
 
 electronics3 = Product.create(
-    title: "HP Newest 14\" Ultral Light Laptop for Students and Business, Intel Quad-Core N4120, 8GB RAM, 192GB Storage(64GB eMMC+128GB Micro SD), 1 Year Office 365, Webcam, HDMI, WiFi, USB-A&C, Win 11 S",
-    bullet: [
+    name: "HP Newest 14\" Ultral Light Laptop for Students and Business, Intel Quad-Core N4120, 8GB RAM, 192GB Storage(64GB eMMC+128GB Micro SD), 1 Year Office 365, Webcam, HDMI, WiFi, USB-A&C, Win 11 S",
+    feature: [
         "14\" HD Display: Enjoy a 14.0-inch diagonal, HD (1366 x 768) micro-edge BrightView display with virtually no bezels for an ultra-wide viewing experience.",
         "Processor & Graphics: Powered by an Intel Celeron N4120 processor with 4 cores, 4 threads, and Intel UHD Graphics 600 for reliable multitasking.",
         "RAM & Storage: Equipped with 8GB of high-bandwidth DDR4 memory for smooth multitasking and 64GB high-speed eMMC storage for your office and webinar needs.",
