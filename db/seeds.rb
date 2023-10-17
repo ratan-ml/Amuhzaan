@@ -112,7 +112,7 @@ electronics1 = Product.create(
         "Battery Life and Storage: Up to two days of battery life with a 5000mAh battery. Enjoy 128GB of built-in storage and expand up to 1TB with a microSD card."
     ],
     description: "The Moto G Stylus 5G is a versatile smartphone that combines powerful performance and creative flexibility. With blazing-fast 5G connectivity, a built-in stylus for precise tasks, a 48MP Quad Camera for stunning photos, and extended battery life, it's your go-to device for work and play. Enjoy the expansive 6.8\" Full HD+ display, ample storage, and water-repellent design. Stay connected with carrier compatibility, and unleash your productivity and creativity with this feature-packed phone.",
-    category: "Electronics",
+    category: "electronics",
     price: 145.11,
 )
 
@@ -126,7 +126,7 @@ electronics2 = Product.create(
         "NEW LOOK, ADDED DURABILITY: Galaxy A54 5G is stylish and strong; Redesigned and refined, the best of our Galaxy A Series has a sleek, triple-lens design and front and back Gorilla Glass 5 that resists spills and dust*****"
     ],
     description: "The Galaxy A54 5G is your perfect entertainment companion, featuring a clear 6.4-inch screen for immersive viewing. Capture stunning photos and selfies with ease using Single Take and OIS, even in low-light conditions. Stay powered up and ready for impromptu photo opportunities with its long-lasting, fast-charging 5,000mAh battery. Enjoy lag-free 5G performance for gaming, streaming, and more with a powerful processor. With a stylish, durable design and robust security features, the Galaxy A54 5G is the ideal choice for your on-the-go lifestyle. Plus, you'll have ample room for all your memories and files with expandable storage of up to 1TB.",
-    category: "Electronics",
+    category: "electronics",
     price: 409.99,
 )
 
@@ -140,7 +140,7 @@ electronics3 = Product.create(
         "Windows 11 Home in S mode: Easily switch to regular Windows 11 for a more versatile computing experience."
     ],
     description: "The 14\" HD laptop is designed to enhance your computing experience. With its expansive HD display featuring micro-edge BrightView and minimal bezels, you'll enjoy an immersive viewing experience. Powered by the Intel Celeron N4120 processor and Intel UHD Graphics 600, this laptop offers reliable performance for multitasking. It comes with 8GB of high-bandwidth DDR4 memory for smooth operation and 64GB of high-speed eMMC storage to meet your office and webinar needs. With a variety of ports and the option to switch to regular Windows 11 from Windows 11 Home in S mode, this laptop is versatile and practical for various computing tasks.",
-    category: "Electronics",
+    category: "electronics",
     price: 299.99,
 )
 
