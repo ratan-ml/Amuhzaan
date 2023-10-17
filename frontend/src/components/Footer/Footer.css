@@ -20,7 +20,7 @@
 
 
 /* Footer Text Styles */
-.footer p, a, span {
+.footer p, footer a, footer span {
     font-size: 15px;
     color: white;
     line-height: 1.5;

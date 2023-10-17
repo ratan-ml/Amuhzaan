@@ -17,19 +17,9 @@ const ProductIndex = () => {
         dispatch(fetchProducts());
     },[])
 
-    // display category name
-    // const categoryString = categoryName.toString();
-    // const categoryHeader = categoryString.charAt(0).toUpperCase() + categoryString.slice(1);
-    
-    // memoize productindexitem
-    // const ProductListItems = products.map((product) => <ProductIndexItem product={product} />)
-
-
     return (
         <>
-            <h1 className="category-header">{categoryName}</h1>
             <div className="category-container">
-                
                 <div className="product-index">
                     {category.map(product=><ProductIndexItem product={product} />)}
                 </div>
