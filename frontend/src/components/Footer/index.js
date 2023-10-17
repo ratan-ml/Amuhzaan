@@ -19,7 +19,7 @@ const Footer = () => {
             </div>
 
             <div className="trademark">
-                    <p>@October 2023, Amuhzaan is a Amzaon Clone created by Raymond Tan</p>
+                    <p>@October 2023, Amuhzaan is a Amazon Clone created by Raymond Tan</p>
                 </div>
         </footer>
     )
