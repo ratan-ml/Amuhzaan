@@ -64,7 +64,7 @@ const SignupFormPage = () => {
                         />
                     </label>
                     <label>
-                        Mobile number or email
+                        Email
                         <input
                         type="text"
                         value={email}

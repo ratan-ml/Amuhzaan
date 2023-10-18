@@ -54,7 +54,7 @@ const LoginFormPage = () => {
                 <h1 className="login-header">Sign in</h1>
                 <form onSubmit={handleSubmit}>
                     <label>
-                        Email or mobile phone number
+                        Email
                         <input
                         id="login-email"
                         type="text"
