@@ -2,19 +2,10 @@
 a {
     color: black;
     text-decoration: none;
-    transition: color 0.2s;
+    /* transition: color 0.2s; */
 }
 
-a:hover {
-    color: #ffa41c;
-}
 
-/* Header Styles */
-.category-header {
-    text-align: center;
-    font-size: 36px;
-    margin-bottom: 20px;
-}
 
 /* Product Styles */
 .product-index {
@@ -26,19 +17,22 @@ a:hover {
 }
 
 .product-container {
-    margin-bottom: 20px;
-    width: calc(25% - 20px);
-    padding: 10px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-    padding: 0;
-    transition: transform 0.2s ease-in-out;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    margin-bottom: 20px;
+    width: calc(25% - 20px);
     min-width: 220px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.product-container:hover {
+    transform: translateY(-5px);
 }
 
 .product-listing-image {
@@ -46,9 +40,13 @@ a:hover {
     justify-content: center;
     background-color: #f8f8f8;
     padding: 10px;
-    padding: 10px;
-    width: 200px; /* Set a fixed width for the div */
-    height: 200px; /* Set a fixed height for the div */
+    width: 200px; 
+    height: 200px; 
+}
+
+.product-listing-image img:hover {
+    cursor: pointer;
+    transform: scale(1.02); 
 }
 
 .product-image {
@@ -60,8 +58,19 @@ a:hover {
     padding: 10px;
 }
 
+.product-name {
+    line-height: 1.2;
+    margin-bottom: 3px;
+}
 
-/* Responsive design */
+.product-name a:hover {
+    color: #ffa41c;
+}
+
+
+
+
+
 @media (max-width: 768px) {
     .category-container {
         padding: 20px 0;
@@ -84,19 +93,4 @@ a:hover {
         max-width: 100%;
         height: auto;
     }
-}
-
-/* Link Hover Effect */
-.product-container:hover {
-    transform: translateY(-5px);
-}
-
-.product-listing-image img:hover {
-    cursor: pointer;
-    transform: scale(1.02); /* Correct the scaling property */
-}
-
-
-.product-name {
-    margin-bottom: 3px;
 }
