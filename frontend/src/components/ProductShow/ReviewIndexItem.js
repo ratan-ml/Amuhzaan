@@ -87,7 +87,7 @@ const ReviewIndexItem = ({review}) => {
                 <>
                     <div className="profile-container">
                         <img src="https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png" 
-                        class="reviewer-icon" 
+                        className="reviewer-icon" 
                         />
                         <span className="reviewer-username">{review.username}</span>
                     </div>

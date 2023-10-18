@@ -178,4 +178,7 @@ a:hover {
 
 .item-image {
     height: 150px;
+    display: flex;
+    justify-content: center;
+    width: 200px; 
 }

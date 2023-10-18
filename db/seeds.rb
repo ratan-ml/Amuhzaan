@@ -9,14 +9,17 @@
 
 puts "Destroying tables..."
 # Unnecessary if using `rails db:seed:replant`
+Review.destroy_all
 Product.destroy_all
 User.destroy_all
 
 
 puts "Resetting primary keys..."
 # For easy testing, so that after seeding, the first `User` has `id` of 1
-ApplicationRecord.connection.reset_pk_sequence!('users')
+ApplicationRecord.connection.reset_pk_sequence!('reviews')
 ApplicationRecord.connection.reset_pk_sequence!('products')
+ApplicationRecord.connection.reset_pk_sequence!('users')
+
 
 puts "Creating demo user..."
 User.create!({

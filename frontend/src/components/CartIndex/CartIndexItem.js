@@ -11,7 +11,7 @@ const CartIndexItem = ({cartItem}) => {
 
     useEffect(()=> {
         setQuantity(cartItem.quantity)
-        if (quantity > 10) setInputMode(true)
+        
     },[cartItem])
 
     const options = []
@@ -27,6 +27,7 @@ const CartIndexItem = ({cartItem}) => {
         const newQty = e.target.value;
         setQuantity(newQty);
         const updatedCartItem = {...cartItem, quantity: newQty};
+        if (newQty > 10) setInputMode(true)
         dispatch(updateCartItem(updatedCartItem));
     }
 
