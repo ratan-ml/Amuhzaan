@@ -75,7 +75,7 @@ const Navigation = () => {
     )
     
     const handleSearch = e => {
-        // e.preventDefault();
+        e.preventDefault();
         if (term.length === 0) {
             history.push('/');
         } else {

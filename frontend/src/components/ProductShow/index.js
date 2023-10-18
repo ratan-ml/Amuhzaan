@@ -6,8 +6,9 @@ import { addCartItem } from "../../store/cart_items";
 import { getReviews } from "../../store/reviews"
 import ProductReviewForm from "./ProductReviewForm";
 import ReviewIndexItem from "./ReviewIndexItem";
-import "./ProductShow.css";
 import DisplayRating from "./DisplayRating";
+import primeLogo from '../../assets/prime-logo.png';
+import "./ProductShow.css";
 
 // path = /products/:productId
 const ProductShow = () => {
@@ -19,17 +20,25 @@ const ProductShow = () => {
     const [quantity, setQuantity] = useState(1)
     const reviews = useSelector(getReviews)
     const productReviews = reviews.filter(review => review.productId == productId)
-    // const orderReviews = [...Object.values(productReviews)].reverse()
 
     useEffect(() => {
-        dispatch(fetchProduct(productId));
         // fetchProduct will include reviews in json/jbuilder response
+        dispatch(fetchProduct(productId));
     }, [])
 
     if (!product) return <h1>loading...</h1>
 
     const price = product.price.toFixed(2).toString();
     const [whole, fraction] = price.split('.');
+
+    const today = new Date();
+    const freeDelivery = new Date(today);
+    const primeDelivery = new Date (today);
+    freeDelivery.setDate(today.getDate() + 5);
+    primeDelivery.setDate(today.getDate() + 2);
+    const opts = { year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedFreeDate = freeDelivery.toLocaleString('en-US', opts);
+    const formattedPrimeDate = primeDelivery.toLocaleString('en-US', opts);
 
     const options = []
     for (let i = 1; i <= 10; i++) {
@@ -46,7 +55,6 @@ const ProductShow = () => {
             const product_id = productId;
             const cartProduct = { user_id, product_id, quantity };
             dispatch(addCartItem(cartProduct));
-            // history.push("/cart") // check if cart received item
         }
     }
 
@@ -66,7 +74,6 @@ const ProductShow = () => {
     });
     const avgRating = totalRating / (productReviews.length)
 
-
     return (
         <>
             <div className="product-show-container">
@@ -76,7 +83,6 @@ const ProductShow = () => {
 
                 <div className="product-info">
                     <h1 className="show-title">{product.name}</h1>
-                    {/* average rating */}
                     <div className="show-avg-rating">
                         <span className="avg-rating-text">{avgRating || null}</span> 
                         <DisplayRating rating={avgRating}/>
@@ -93,25 +99,24 @@ const ProductShow = () => {
                 </div>
 
                 <div className="purchase-panel">
-                {/* purchase info */}
                     <div className="show-price">
                         <span className="price-symbol">$</span>
                         <span className="price-whole">{whole}</span>
                         <span className="price-fraction">{fraction}</span>
                     </div>
-                    <p>prime</p>
+                    <img className="prime-logo" src={primeLogo} alt="prime"/>
                     <br/>
-                    <p>FREE delivery (date) </p>
-                    <p>or fastest delivery (date) </p>
+                    <p className="delivery-text">FREE delivery <span className="delivery-date">{formattedFreeDate}</span> </p>
+                    <p className="delivery-text">Or fastest delivery <span className="delivery-date">{formattedPrimeDate}</span> </p>
                     <br/>
                     <p className="in-stock">In Stock</p>
                     Qty: 
                     <select onChange={e => setQuantity(e.target.value)}>
                         {options}
                     </select>
-                    <button className="add-to-cart-btn" onClick={handleCartClick}>Add to Cart</button>
+                    <button className="add-to-cart-btn panel-button" onClick={handleCartClick}>Add to Cart</button>
                     <br/>
-                    <button className="buy-now-btn" onClick={handleBuyClick}>Buy Now</button>
+                    <button className="buy-now-btn panel-button" onClick={handleBuyClick}>Buy Now</button>
                     <p className="a-size-small">
                         <span className="gray">Payment</span> Secure Transaction
                     </p>
@@ -140,8 +145,7 @@ const ProductShow = () => {
                         <span className="summary-text">{avgRating || 0} out of 5</span>
                     </div>
                 </div>
-                <div className="users-review">
-                    {/* customer reviews */}
+                <div className="customer-reviews">
                     <h1 className="review-section-header">Top reviews from the United States</h1>
                     {productReviews.map(review => <ReviewIndexItem review={review} />)}
                     <ProductReviewForm product={product} />
