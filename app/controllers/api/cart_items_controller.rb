@@ -1,7 +1,6 @@
 class Api::CartItemsController < ApplicationController
-    before_action :require_logged_in, only: [:create]
-    # user should be able to add to cart without login
-    # login should retain cart items
+    before_action :require_logged_in, only: [:index, :create]
+
     def index
         @cart_items = current_user ? current_user.cartItems : []
         render :index

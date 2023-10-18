@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { deleteReview, updateReview } from "../../store/reviews";
-
 import DisplayRating from "./DisplayRating";
-
 
 const ReviewIndexItem = ({review}) => {
     const dispatch = useDispatch()
@@ -53,8 +51,7 @@ const ReviewIndexItem = ({review}) => {
         <div className="review-container">
             { editMode ? (
                 <>
-                    {/* might move form to modal */}
-                    {/* <h1>Review this product</h1>  */}
+                    {/* future plan: move form to modal */}
                     <form className="edit-review-form" onSubmit={handleEditReview}>
                         <label>Edit headline
                             <input
@@ -102,8 +99,6 @@ const ReviewIndexItem = ({review}) => {
                 </>
                 )
             }
-            {/* display delete button if reviewer*/}
-            {/* {deleteButton} */}
         </div>
     )
 }

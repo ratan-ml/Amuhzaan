@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
 import banner1 from '../../assets/home-banner-1.1.jpg';
-import './HomePage.css';
 import Footer from "../Footer";
+import './HomePage.css';
+
 
 const HomePage = () => {
 

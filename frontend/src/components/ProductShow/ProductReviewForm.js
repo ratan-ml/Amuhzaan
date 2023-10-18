@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { addReview, getReviews } from "../../store/reviews"
-import { IoIosStar } from 'react-icons/io'
 
 const ProductReviewForm = ({product}) => {
     const dispatch = useDispatch()
@@ -9,10 +8,8 @@ const ProductReviewForm = ({product}) => {
     const [body, setBody] = useState("")
     const [rating, setRating] = useState(1)
     const sessionUser = useSelector(state => state.session.user)
-
     const reviews = useSelector(getReviews);
     const reviewers = reviews.map(review => review.userId);
-
 
     const handleAddReviewClick = e => {
         e.preventDefault();
@@ -44,32 +41,29 @@ const ProductReviewForm = ({product}) => {
     }
 
     return (
-        <>
-            {/* <h1>Review this product</h1>  */}
-            <form className="review-form" onSubmit={handleAddReviewClick}>
-                <label>Add a headline
-                    <input required
-                        type="text"
-                        value={title}
-                        placeholder="What shall be the title?"
-                        onChange={e => setTitle(e.target.value)}
-                    />
-                </label>
-                <label>Add a review
-                    <textarea required
-                        value={body}
-                        placeholder="Did you leave the front door open?"
-                        onChange={e => setBody(e.target.value)}
-                    />
-                </label>
-                <label>Overall rating: 
-                    <select value={rating} onChange={e => setRating(e.target.value)}>
-                        {options}
-                    </select>
-                </label>
-                <button className="submit-btn" type="submit">Submit</button>
-            </form>
-        </>
+        <form className="review-form" onSubmit={handleAddReviewClick}>
+            <label>Add a headline
+                <input required
+                    type="text"
+                    value={title}
+                    placeholder="What shall be the title?"
+                    onChange={e => setTitle(e.target.value)}
+                />
+            </label>
+            <label>Add a review
+                <textarea required
+                    value={body}
+                    placeholder="Did you leave the front door open?"
+                    onChange={e => setBody(e.target.value)}
+                />
+            </label>
+            <label>Overall rating: 
+                <select value={rating} onChange={e => setRating(e.target.value)}>
+                    {options}
+                </select>
+            </label>
+            <button className="submit-btn" type="submit">Submit</button>
+        </form>
     )
 }
 

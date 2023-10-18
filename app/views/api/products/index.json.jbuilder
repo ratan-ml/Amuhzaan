@@ -1,5 +1,3 @@
-
-
 @products.each do |product|
     json.set! product.id do
         json.extract! product, :id, :category, :name, :feature, :description, :price
