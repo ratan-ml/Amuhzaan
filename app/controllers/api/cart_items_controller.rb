@@ -3,7 +3,7 @@ class Api::CartItemsController < ApplicationController
     # user should be able to add to cart without login
     # login should retain cart items
     def index
-        @cart_items = current_user.cartItems
+        @cart_items = current_user ? current_user.cartItems : []
         render :index
     end
 

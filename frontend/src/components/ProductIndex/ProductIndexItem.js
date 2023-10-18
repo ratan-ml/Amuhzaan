@@ -8,7 +8,6 @@ import DisplayRating from "../ProductShow/DisplayRating";
 const ProductIndexItem = ({product}) => {
 
     const reviews = useSelector(getReviews)
-    console.log(reviews)
     const price = product.price.toFixed(2).toString();
     const [whole, fraction] = price.split('.');
 

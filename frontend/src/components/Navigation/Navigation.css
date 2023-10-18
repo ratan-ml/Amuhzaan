@@ -17,6 +17,7 @@
     height: 47px;
     padding-top: 4px;
     margin-right: 20px;
+    border: 1px solid transparent;
 }
 
 .home-logo:hover {
@@ -72,6 +73,10 @@
     border: none;
     outline: none;
     background-color: #febd68;
+}
+
+.search-form button:hover {
+    background-image: linear-gradient(rgba(0,0,0,0.05) 0 0)
 }
 
 

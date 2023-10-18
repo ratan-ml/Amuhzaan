@@ -101,8 +101,10 @@ puts "creating product"
 #     })
 # end
 
+require "open-uri"
+
 # Electronics
-electronic1 = Product.create(
+electronics1 = Product.create(
     name: "FMotorola Moto G Stylus 5G | 2021 | 2-Day Battery | Unlocked | Made for US 4/128GB | 48MP Camera | Cosmic Emerald",
     feature: [
         "Carrier Compatibility: AT&T (4G, VoLTE), Verizon (5G sub6 NSA, VoLTE), T-Mobile (5G sub6 SA/NSA, VoLTE, WiFi Calling, Video Calling), Tracfone (GSM, CDMA), Spectrum (5G sub6 NSA, VoLTE, WiFi Calling). Not supported: U.S. Cellular, Republic Wireless, Xfinity Wireless.",
@@ -116,7 +118,7 @@ electronic1 = Product.create(
     price: 145.11,
 )
 
-electronic2 = Product.create(
+electronics2 = Product.create(
     name: "Digital Camera, FHD 1080P Camera for Kids Digital Point and Shoot Camera with 16X Zoom Anti Shake, Compact Small Camera for Boys Girls Kids",
     feature: [
         "Effortless Photography: Capture high-clarity FHD 1080P videos and 44MP photos with ease, thanks to the newest CMOS metering system that automatically produces natural color images without complex manual settings.",
@@ -130,7 +132,7 @@ electronic2 = Product.create(
     price: 49.99,
 )
 
-electronic3 = Product.create(
+electronics3 = Product.create(
     name: "HP Newest 14\" Ultral Light Laptop for Students and Business, Intel Quad-Core N4120, 8GB RAM, 192GB Storage(64GB eMMC+128GB Micro SD), 1 Year Office 365, Webcam, HDMI, WiFi, USB-A&C, Win 11 S",
     feature: [
         "14\" HD Display: Enjoy a 14.0-inch diagonal, HD (1366 x 768) micro-edge BrightView display with virtually no bezels for an ultra-wide viewing experience.",
@@ -144,7 +146,7 @@ electronic3 = Product.create(
     price: 299.99,
 )
 
-electronic4 = Product.create(
+electronics4 = Product.create(
     name: "Amazon Fire HD 10 tablet, 10.1\", 1080p Full HD, 32 GB, (2021 release), Olive",
     feature: [
         "Vivid Display: Enjoy a clear 10.1\" 1080p Full HD display with over 2 million pixels, offering a nearly 20% brighter screen compared to the Samsung Galaxy Tab A8 (2022).",
@@ -158,7 +160,7 @@ electronic4 = Product.create(
     price: 119.99,
 )
 
-electronic5 = Product.create(
+electronics5 = Product.create(
     name: "Amazon Echo Dot (5th Gen) with clock | Compact smart speaker with Alexa and enhanced LED display for at-a-glance clock, timers, weather, and more | Cloud Blue",
     feature: [
         "Improved audio for clearer vocals, deeper bass, and vibrant sound",
@@ -172,7 +174,7 @@ electronic5 = Product.create(
     price: 59.99,
 )
 
-electronic6 = Product.create(
+electronics6 = Product.create(
     name: "JBL Tune 510BT: Wireless On-Ear Headphones with Purebass Sound - Black",
     feature: [
         "JBL Pure Bass Sound: Experience renowned JBL Pure Bass sound, known from top venues worldwide.",
@@ -186,7 +188,7 @@ electronic6 = Product.create(
     price: 24.95,
 )
 
-electronic7 = Product.create(
+electronics7 = Product.create(
     name: "Apple Watch Series 8 [GPS 41mm] Smart Watch w/Midnight Aluminum Case with Midnight Sport Band - S/M. Fitness Tracker, Blood Oxygen & ECG Apps, Always-On Retina Display, Water Resistant",
     feature: [
         "Advanced Health Insights: The Apple Watch Series 8 is equipped with advanced sensors that provide valuable insights into your health, including temperature sensing for women's health and blood oxygen monitoring. It can also detect irregular rhythms and track your sleep stages.",
@@ -200,7 +202,7 @@ electronic7 = Product.create(
     price: 319.97,
 )
 
-electronic8 = Product.create(
+electronics8 = Product.create(
     name: "Xbox Core Wireless Controller | Shock Blue | Xbox Series X|S, Xbox One, and Windows Devices",
     feature: [
         "Modernized Design: The controller features a modern design with sculpted surfaces and refined geometry for enhanced comfort during extended gameplay sessions, offering up to 40 hours of battery life.",
@@ -388,7 +390,7 @@ home4 = Product.create(
     ],
     description: "Acko's folding step stool stands out with its premium quality, constructed from heavy-duty plastic that meets EN 14183 Certificate standards, ensuring long-lasting durability. Its ergonomic carrying handle makes folding and moving this stool a breeze, perfect for kids. Safety is a top priority, with a unique safety stop gap feature for stability and rounded corners to protect little ones. The anti-slip surface with rubber grips and feet guarantees maximum grip and comfort for various uses, from the kitchen and bathroom to the office and garden. With a maximum load capacity of 300 pounds, it's suitable for both children and adults in indoor settings, provided the surface is dry and flat. A versatile and dependable addition to your home.",
     category: "home",
-    price: 15.98,
+    price: 15.99,
 )
 
 home5 = Product.create(
@@ -447,7 +449,7 @@ home8 = Product.create(
 )
 
 # Book & Media
-book1 = Product.create(
+books1 = Product.create(
     name: "Never Split the Difference: Negotiating as if Your Life Depended on It",
     feature: [
         "Field-tested approach to high-stakes negotiations from a former FBI international hostage negotiator",
@@ -461,7 +463,7 @@ book1 = Product.create(
     price: 19.99,
 )
 
-book2 = Product.create(
+books2 = Product.create(
     name: "How to Win Friends & Influence People",
     feature: [
         "Learn six effective ways to make people like you",
@@ -474,7 +476,7 @@ book2 = Product.create(
     price: 10.82,
 )
 
-book3 = Product.create(
+books3 = Product.create(
     name: "The Pragmatic Programmer: 20th Anniversary Edition, 2nd Edition: Your Journey to Mastery",
     feature: [
         "Gain fresh insights with each listen, whether you're new to the field or an experienced practitioner",
@@ -488,7 +490,7 @@ book3 = Product.create(
     price: 35.99,
 )
 
-book4 = Product.create(
+books4 = Product.create(
     name: "Where the Crawdads Sing",
     feature: [
         "A #1 New York Times bestselling phenomenon, now a major motion picture",
@@ -502,7 +504,7 @@ book4 = Product.create(
     price: 20.24,
 )
 
-book5 = Product.create(
+books5 = Product.create(
     name: "The Midnight Library: A Novel",
     feature: [
         "A number one New York Times best-selling phenomenon",
@@ -516,7 +518,7 @@ book5 = Product.create(
     price: 13.48,
 )
 
-book6 = Product.create(
+books6 = Product.create(
     name: "1984: New Classic Edition",
     feature: [
         "A classic cautionary tale by George Orwell that remains relevant in today's world",
@@ -530,7 +532,7 @@ book6 = Product.create(
     price: 13.39,
 )
 
-book7 = Product.create(
+books7 = Product.create(
     name: "Dune",
     feature: [
         "The acclaimed novel 'Dune' by Frank Herbert, soon to be a major motion picture",
@@ -544,7 +546,7 @@ book7 = Product.create(
     price: 20.99,
 )
 
-book8 = Product.create(
+books8 = Product.create(
     name: "The Art of War",
     feature: [
         "An ancient Chinese military handbook, 'The Art of War' dates back to the fifth century BC",
@@ -559,7 +561,7 @@ book8 = Product.create(
 )
 
 # Sports & Outdoor
-sport1 = Product.create(
+sports1 = Product.create(
     name: "Franklin Sports Outdoor Pickleballs - X-40 Pickleball Balls - USA Pickleball (USAPA) Approved - Official US Open Ball - 3 Packs, 12 Packs, 36 Pickleball Buckets, 100 + 400 Bulk Packs of Pickleballs",
     feature: [
         "Premium quality outdoor pickleballs favored by pro and amateur players",
@@ -573,7 +575,7 @@ sport1 = Product.create(
     price: 11.99,
 )
 
-sport2 = Product.create(
+sports2 = Product.create(
     name: "Occer 12x25 Compact Kids Binoculars with Low Light Night Vision,Folding Small Waterproof Large Eyepiece Binoculars for Adults,Great for Travel,Bird Watching,Hunting,Hiking,Outdoor Sports",
     feature: [
         "High-powered binoculars with 12x magnification and 25mm objective lens",
@@ -589,7 +591,7 @@ sport2 = Product.create(
     price: 35.99,
 )
 
-sport3 = Product.create(
+sports3 = Product.create(
     name: "Franklin Sports Blackhawk Soccer Goal - Pop Up Backyard Soccer Nets - Foldable Indoor + Outdoor Soccer Goals - Portable Adult + Kids Soccer Goal",
     feature: [
         "Backyard soccer goals designed for training and short-sided games",
@@ -603,7 +605,7 @@ sport3 = Product.create(
     price: 30.99,
 )
 
-sport4 = Product.create(
+sports4 = Product.create(
     name: "Spalding Outdoor Basketballs, Performance Rubber Cover Stands up to Asphalt or Concrete - 29.5\", 28.5\", 27.5\"",
     feature: [
         "Official size and weight: Size 7, 29.5\"",
@@ -616,7 +618,7 @@ sport4 = Product.create(
     price: 18.03,
 )
 
-sport5 = Product.create(
+sports5 = Product.create(
     name: "Spikeball 3 Ball Original Roundnet Game Set - Includes 3 Balls, net and Bag",
     feature: [
         "Competitive Spikeball Game Set for thrilling outdoor play with friends and family",
@@ -630,7 +632,7 @@ sport5 = Product.create(
     price: 62.99,
 )
 
-sport6 = Product.create(
+sports6 = Product.create(
     name: "VIFUUR Water Sports Shoes Barefoot Quick-Dry Aqua Yoga Socks Slip-on for Men Women",
     feature: [
         "100% Synthetic construction for durability and comfort",
@@ -645,7 +647,7 @@ sport6 = Product.create(
     price: 11.99,
 )
 
-sport7 = Product.create(
+sports7 = Product.create(
     name: "Sport-Brella Versa-Brella SPF 50+ Adjustable Umbrella with Universal Clamp",
     feature: [
         "UPF 50+ protection for safety from 99.5% of UVA and UVB rays",
@@ -662,7 +664,7 @@ sport7 = Product.create(
     price: 42.50,
 )
 
-sport8 = Product.create(
+sports8 = Product.create(
     name: "BUZIO Vacuum Insulated Stainless Steel Water Bottle 64oz (Cold for 48 Hrs/Hot for 24 Hrs) BPA Free Double Wall Travel Mug/Flask for Outdoor Sports Hiking, Cycling, Camping, Running",
     feature: [
         "Vacuum insulated with ThermoArmour technology for up to 48 hours of cold beverage retention and 24 hours of hot beverage retention",

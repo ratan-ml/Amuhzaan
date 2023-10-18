@@ -90,8 +90,12 @@ const Navigation = () => {
             <div className="top-navbar">
                 <div className="nav-left">
                     <NavLink to="/"><img className="home-logo" src={logo} alt='amznLogo' /></NavLink>
-                    <a href="https://linkedin.com/in/raymondtan-py"><img className="linkedin" src={linkedinIcon} alt='linkedinLogo' /></a>
-                    <a href="https://github.com/ratan-ml"><img className="github" src={githubIcon} alt='githubLogo' /></a>
+                    <a href="https://linkedin.com/in/raymondtan-py" target="_blank">
+                        <img className="linkedin" src={linkedinIcon} alt='linkedinLogo' />
+                    </a>
+                    <a href="https://github.com/ratan-ml" target="_blank">
+                        <img className="github" src={githubIcon} alt='githubLogo' />
+                    </a>
                     
                 </div>
                 

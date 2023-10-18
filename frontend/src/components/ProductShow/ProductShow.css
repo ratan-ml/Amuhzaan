@@ -346,6 +346,7 @@ hr {
 .review-disabled {
     font-weight: 700;
     font-size: 14px;
+    margin-bottom: 10px;
 }
 
 
@@ -355,4 +356,5 @@ hr {
     background-color: #ffa41c;
     border-color: #D5D9D9;
     box-shadow: 0 2px 5px 0 rgba(213,217,217,.5);
+    margin-bottom: 10px;
 }

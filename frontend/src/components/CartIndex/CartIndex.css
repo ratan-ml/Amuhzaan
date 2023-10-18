@@ -1,3 +1,9 @@
+.empty-cart {
+    font-weight: 600;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
 .shopping-cart-container {
     display: flex;
     flex-direction: column;

@@ -19,6 +19,7 @@ const ProductShow = () => {
     const [quantity, setQuantity] = useState(1)
     const reviews = useSelector(getReviews)
     const productReviews = reviews.filter(review => review.productId == productId)
+    const orderReviews = [...Object.values(productReviews)].reverse()
 
     useEffect(() => {
         dispatch(fetchProduct(productId));
@@ -151,9 +152,8 @@ const ProductShow = () => {
                 <div className="users-review">
                     {/* customer reviews */}
                     <h1 className="review-section-header">Top reviews from the United States</h1>
-                    {Object.values(productReviews).map(review => <ReviewIndexItem review={review} />)}
-                    {/* if already reviewed by current user, do not show form */}
                     <ProductReviewForm product={product} />
+                    {orderReviews.map(review => <ReviewIndexItem review={review} />)}
                 </div>
             </div>
         </>

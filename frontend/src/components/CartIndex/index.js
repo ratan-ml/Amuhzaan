@@ -10,10 +10,13 @@ const CartIndex = () => {
     const dispatch = useDispatch()
     const cartItems = useSelector(getCartItems)
     const history = useHistory()
+    const sessionUser = useSelector(state => state.session.user)
 
     useEffect(()=>{
         dispatch(fetchCartItems())
     },[])
+
+    if (!sessionUser) history.push("/login")
 
     let cartTotal = 0
     cartItems.forEach(cartItem => cartTotal += cartItem.quantity * cartItem.product.price)
@@ -24,7 +27,7 @@ const CartIndex = () => {
 
     if (!cartItems || !cartItems.length) return (
         <div className="empty-cart">
-            No items in the cart. Start selecting items to purchase.
+            Your shopping cart is currently empty. Please begin selecting items to add to your cart for purchase.
         </div>
     );
 
