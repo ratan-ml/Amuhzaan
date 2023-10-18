@@ -1,13 +1,22 @@
-/* .category-container {
-    padding: 40px 0;
-} */
+/* Global Styles */
+a {
+    color: black;
+    text-decoration: none;
+    transition: color 0.2s;
+}
 
+a:hover {
+    color: #ffa41c;
+}
+
+/* Header Styles */
 .category-header {
     text-align: center;
     font-size: 36px;
     margin-bottom: 20px;
 }
 
+/* Product Styles */
 .product-index {
     display: flex;
     flex-wrap: wrap;
@@ -18,7 +27,6 @@
 
 .product-container {
     margin-bottom: 20px;
-    /* width: calc(30% - 2vw); Adjust for responsive margin */
     width: calc(25% - 20px);
     padding: 10px;
     background-color: #fff;
@@ -26,6 +34,11 @@
     border-radius: 4px;
     padding: 0;
     transition: transform 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 220px;
 }
 
 .product-listing-image {
@@ -33,12 +46,14 @@
     justify-content: center;
     background-color: #f8f8f8;
     padding: 10px;
+    padding: 10px;
+    width: 200px; /* Set a fixed width for the div */
+    height: 200px; /* Set a fixed height for the div */
 }
 
 .product-image {
-    max-width: 100%; /* Ensures the image doesn't exceed its parent div's width */
-    height: auto; /* Maintains the image's aspect ratio */
-    display: block; /* Removes any extra spacing below the image */
+    max-width: 100%; 
+    max-height: 100%;
 }
 
 .product-listing-details {
@@ -71,7 +86,7 @@
     }
 }
 
-/* link hover effect */
+/* Link Hover Effect */
 .product-container:hover {
     transform: translateY(-5px);
 }
@@ -81,15 +96,7 @@
     transform: scale(1.02); /* Correct the scaling property */
 }
 
-a {
-    color: black;
-    text-decoration: none;
-    transition: color 0.2s;
-}
 
-a:hover {
-    color: #ffa41c;
-}
 .product-name {
     margin-bottom: 3px;
 }

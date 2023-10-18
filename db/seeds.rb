@@ -31,75 +31,8 @@ User.create!({
     email: 'demo2@user.io', 
     password: 'password'
 })
-puts "creating more users"
 
 puts "creating product"
-
-
-# 10.times do
-#     Product.create!({
-#         name: Faker::Book.title,
-#         feature: [
-#             Faker::Lorem.paragraph(sentence_count: 6),
-#             Faker::Lorem.paragraph(sentence_count: 6),
-#             Faker::Lorem.paragraph(sentence_count: 6)],
-#         description: Faker::Lorem.paragraph(sentence_count: 6),
-#         price: Faker::Commerce.price(range: 9.99..24.99),
-#         category: 'electronics'
-#     })
-# end
-
-# 10.times do
-#     Product.create!({
-#         name: Faker::Book.title,
-#         feature: [
-#             Faker::Lorem.paragraph(sentence_count: 6),
-#             Faker::Lorem.paragraph(sentence_count: 6),
-#             Faker::Lorem.paragraph(sentence_count: 6)],
-#         description: Faker::Lorem.paragraph(sentence_count: 6),
-#         price: Faker::Commerce.price(range: 9.99..24.99),
-#         category: 'clothing'
-#     })
-# end
-
-# 10.times do
-#     Product.create!({
-#         name: Faker::Book.title,
-#         feature: [
-#             Faker::Lorem.paragraph(sentence_count: 6),
-#             Faker::Lorem.paragraph(sentence_count: 6),
-#             Faker::Lorem.paragraph(sentence_count: 6)],
-#         description: Faker::Lorem.paragraph(sentence_count: 6),
-#         price: Faker::Commerce.price(range: 9.99..24.99),
-#         category: 'home'
-#     })
-# end
-
-# 10.times do
-#     Product.create!({
-#         name: Faker::Book.title,
-#         feature: [
-#             Faker::Lorem.paragraph(sentence_count: 6),
-#             Faker::Lorem.paragraph(sentence_count: 6),
-#             Faker::Lorem.paragraph(sentence_count: 6)],
-#         description: Faker::Lorem.paragraph(sentence_count: 6),
-#         price: Faker::Commerce.price(range: 9.99..24.99),
-#         category: 'books'
-#     })
-# end
-
-# 10.times do
-#     Product.create!({
-#         name: Faker::Book.title,
-#         feature: [
-#             Faker::Lorem.paragraph(sentence_count: 6),
-#             Faker::Lorem.paragraph(sentence_count: 6),
-#             Faker::Lorem.paragraph(sentence_count: 6)],
-#         description: Faker::Lorem.paragraph(sentence_count: 6),
-#         price: Faker::Commerce.price(range: 9.99..24.99),
-#         category: 'sports'
-#     })
-# end
 
 require "open-uri"
 
@@ -117,6 +50,10 @@ electronics1 = Product.create(
     category: "electronics",
     price: 145.11,
 )
+electronics1.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/electronics1.jpg"),
+    filename: "electronics1.jpg"
+)
 
 electronics2 = Product.create(
     name: "Digital Camera, FHD 1080P Camera for Kids Digital Point and Shoot Camera with 16X Zoom Anti Shake, Compact Small Camera for Boys Girls Kids",
@@ -130,6 +67,10 @@ electronics2 = Product.create(
     description: "The digital camera is perfect for both beginners and kids, as it effortlessly captures high-quality photos and videos with automatic settings. It's portable and offers an extended battery life, making it suitable for travel. The user-friendly design ensures that anyone can easily operate it. Additionally, it encourages creativity with customizable features and comes as a comprehensive gift package, making it an excellent choice for young photographers on birthdays, Christmas, or other important events.",
     category: "electronics",
     price: 49.99,
+)
+electronics2.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/electronics2.jpg"),
+    filename: "electronics2.jpg"
 )
 
 electronics3 = Product.create(
@@ -145,6 +86,10 @@ electronics3 = Product.create(
     category: "electronics",
     price: 299.99,
 )
+electronics3.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/electronics3.jpg"),
+    filename: "electronics3.jpg"
+)
 
 electronics4 = Product.create(
     name: "Amazon Fire HD 10 tablet, 10.1\", 1080p Full HD, 32 GB, (2021 release), Olive",
@@ -158,6 +103,10 @@ electronics4 = Product.create(
     description: "Experience vivid visuals on the 10.1\" 1080p Full HD display with 20% more brightness than the Samsung Galaxy Tab A8 (2022). Enjoy extended 12-hour battery life and choose from 32GB or 64GB storage, expandable up to 1TB via a microSD card (sold separately). With a fast octa-core processor and 3GB of RAM, enjoy responsive performance. Access a wide range of apps through Amazon's Appstore, stay connected with Alexa for video calls, and boost productivity with Microsoft Office and more. Note: Google Play is not supported, and some apps may require a subscription.",
     category: "electronics",
     price: 119.99,
+)
+electronics4.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/electronics4.jpg"),
+    filename: "electronics4.jpg"
 )
 
 electronics5 = Product.create(
@@ -173,6 +122,10 @@ electronics5 = Product.create(
     category: "electronics",
     price: 59.99,
 )
+electronics5.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/electronics5.jpg"),
+    filename: "electronics5.jpg"
+)
 
 electronics6 = Product.create(
     name: "JBL Tune 510BT: Wireless On-Ear Headphones with Purebass Sound - Black",
@@ -186,6 +139,10 @@ electronics6 = Product.create(
     description: "The JBL Tune 510BT wireless headphones offer impressive sound quality, seamless connectivity, and a comfortable fit with an adjustable headband. Whether you're listening to music, answering calls, or interacting with your device's voice assistant, these headphones are designed for personal enjoyment.",
     category: "electronics",
     price: 24.95,
+)
+electronics6.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/electronics6.jpg"),
+    filename: "electronics6.jpg"
 )
 
 electronics7 = Product.create(
@@ -201,6 +158,10 @@ electronics7 = Product.create(
     category: "electronics",
     price: 319.97,
 )
+electronics7.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/electronics7.jpg"),
+    filename: "electronics7.jpg"
+)
 
 electronics8 = Product.create(
     name: "Xbox Core Wireless Controller | Shock Blue | Xbox Series X|S, Xbox One, and Windows Devices",
@@ -214,6 +175,10 @@ electronics8 = Product.create(
     description: "The Xbox Shock Blue Wireless Controller offers a modernized design for comfortable gaming, precise controls with a hybrid D-pad and textured grips, and a Share button for easy content sharing. It provides versatility by working across various devices, and you can customize button mappings to make it your own. Whether you're playing on an Xbox console, PC, or mobile device, this controller enhances your gaming experience.",
     category: "electronics",
     price: 54.99,
+)
+electronics8.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/electronics8.jpg"),
+    filename: "electronics8.jpg"
 )
 
 # Clothing & Fashion
@@ -230,6 +195,10 @@ clothing1 = Product.create(
     category: "clothing",
     price: 40.99,
 )
+clothing1.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/clothing1.jpg"),
+    filename: "clothing1.jpg"
+)
 
 clothing2 = Product.create(
     name: "New Balance Men's 608 V5 Cross Trainer",
@@ -243,6 +212,10 @@ clothing2 = Product.create(
     description: "This shoe offers a blend of style, comfort, and durability. The upper is crafted from 100% genuine leather, providing both a classic look and long-lasting quality. Imported with precision, this shoe features a rubber sole that offers excellent traction and support for various activities. What sets it apart is the ABZORB midsole cushioning, designed to absorb forceful impacts and provide enhanced comfort. To add even more comfort and support, it includes a premium PU comfort insert. Whether you're looking for a stylish everyday shoe or footwear for specific activities, this product combines premium materials and cushioning to ensure a satisfying wearing experience.",
     category: "clothing",
     price: 64.99,
+)
+clothing2.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/clothing2.jpg"),
+    filename: "clothing2.jpg"
 )
 
 clothing3 = Product.create(
@@ -258,6 +231,10 @@ clothing3 = Product.create(
     category: "clothing",
     price: 17.99,
 )
+clothing3.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/clothing3.jpg"),
+    filename: "clothing3.jpg"
+)
 
 clothing4 = Product.create(
     name: "MANGOPOP Women's Mock Turtle Neck Long Sleeve Tops Bodysuit Jumpsuit",
@@ -272,6 +249,10 @@ clothing4 = Product.create(
     category: "clothing",
     price: 26.98,
 )
+clothing4.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/clothing4.jpg"),
+    filename: "clothing4.jpg"
+)
 
 clothing5 = Product.create(
     name: "Under Armour Men's Tech 2.0 Short-Sleeve T-Shirt",
@@ -285,6 +266,10 @@ clothing5 = Product.create(
     description: "This versatile performance shirt is crafted from 100% polyester and imported to ensure durability and quality. It features UA Tech fabric, known for its quick-drying properties, ultra-soft texture, and natural feel against the skin. The material efficiently wicks away sweat, keeping you dry and comfortable during your workouts or outdoor activities. The shirt offers a new, streamlined fit with a shaped hem, combining practicality with a stylish look. With its loose and fuller cut, it provides complete comfort for your active lifestyle.",
     category: "clothing",
     price: 24.99,
+)
+clothing5.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/clothing5.jpg"),
+    filename: "clothing5.jpg"
 )
 
 clothing6 = Product.create(
@@ -302,6 +287,10 @@ clothing6 = Product.create(
     category: "clothing",
     price: 27.99,
 )
+clothing6.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/clothing6.jpg"),
+    filename: "clothing6.jpg"
+)
 
 clothing7 = Product.create(
     name: "Amazon Essentials Women's French Terry Fleece Jogger Sweatpant (Available in Plus Size)",
@@ -317,6 +306,10 @@ clothing7 = Product.create(
     description: "These jogger sweatpants are a must-have addition to your wardrobe. Made from a comfortable 60% cotton and 40% polyester blend, they offer a regular fit that's close but comfortable through the hip and thigh, with a mid-rise that sits below the natural waist. The cozy brushed back fleece with a buttery-soft interior ensures you stay comfortable all day. Whether you're on the go, hitting the gym, or just lounging at home, these classic joggers are your everyday essential. They feature an easy pull-on rib-knit waistband with an adjustable drawstring, convenient front slant pockets, and tall rib cuffs at the bottom to cinch the leg in. The inseam measures 28 1/2” on US size S.",
     category: "clothing",
     price: 23.70,
+)
+clothing7.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/clothing7.jpg"),
+    filename: "clothing7.jpg"
 )
 
 clothing8 = Product.create(
@@ -335,6 +328,11 @@ clothing8 = Product.create(
     category: "clothing",
     price: 14.00,
 )
+clothing8.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/clothing8.jpg"),
+    filename: "clothing8.jpg"
+)
+
 
 # Home & Furniture
 home1 = Product.create(
@@ -350,6 +348,10 @@ home1 = Product.create(
     category: "home",
     price: 15.99,
 )
+home1.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/home1.jpg"),
+    filename: "home1.jpg"
+)
 
 home2 = Product.create(
     name: "Furinno Luder Bookcase / Book / Storage , 7-Cube, White",
@@ -363,6 +365,10 @@ home2 = Product.create(
     description: "This stylish yet functional piece of furniture offers a simple and elegant design that seamlessly fits into any room while serving a practical purpose. Crafted from engineered particle board, it strikes a balance between durability and affordability, making it suitable for budget-conscious buyers. Its space-efficient design ensures it can fit well in compact areas. Moreover, it stands sturdy on flat surfaces, and assembly is hassle-free with clear instructions provided. With product dimensions measuring 19.53 inches in width, 41.73 inches in height, and 9.44 inches in depth, it's a versatile addition to your living space.",
     category: "home",
     price: 36.33,
+)
+home2.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/home2.jpg"),
+    filename: "home2.jpg"
 )
 
 home3 = Product.create(
@@ -378,6 +384,10 @@ home3 = Product.create(
     category: "home",
     price: 49.99,
 )
+home3.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/home3.jpg"),
+    filename: "home3.jpg"
+)
 
 home4 = Product.create(
     name: "Acko Folding Step Stool 13 inch Heavy Duty Plastic Foldable Step Stool for Kids and Adults, Small Collapsible Fold Up Stepping Stool 1 Packz",
@@ -392,6 +402,10 @@ home4 = Product.create(
     category: "home",
     price: 15.99,
 )
+home4.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/home4.jpg"),
+    filename: "home4.jpg"
+)
 
 home5 = Product.create(
     name: "Serta Rane Convertible Sofa Bed, Charcoal",
@@ -404,6 +418,10 @@ home5 = Product.create(
     description: "Serta's Rane sofa delivers premium comfort and contemporary elegance at a sensible price. This versatile, convertible sofa features high-density foam, a tufted design, and modern chrome legs, ensuring both style and comfort. It's easy to assemble with the included tools, and its premium-quality polyester construction with a solid hardwood frame guarantees long-lasting durability. The sofa's dimensions are 66.1W x 33.1D x 29.5H, while the bed's dimensions are 66.1W x 37.6D x 15.1H. Maintenance is simple, requiring regular vacuuming and spot cleaning, with deeper cleaning achieved using a dry cloth with soap and water while avoiding harsh chemicals.",
     category: "home",
     price: 215.00,
+)
+home5.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/home5.jpg"),
+    filename: "home5.jpg"
 )
 
 home6 = Product.create(
@@ -419,6 +437,10 @@ home6 = Product.create(
     category: "home",
     price: 89.99,
 )
+home6.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/home6.jpg"),
+    filename: "home6.jpg"
+)
 
 home7 = Product.create(
     name: "T-Shape Hand Towel Stand with Marble Base for Bathroom, Countertop Towel Racks, Kitchen Towel Rack Black, Free-Standing Towel Hanger, Home Decor",
@@ -433,6 +455,10 @@ home7 = Product.create(
     category: "home",
     price: 19.99,
 )
+home7.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/home7.jpg"),
+    filename: "home7.jpg"
+)
 
 home8 = Product.create(
     name: "VASAGLE Ladder Shelf, 4-Tier Bookshelf, Storage Rack, Bookcase with Steel Frame, for Living Room, Home Office, Kitchen, Bedroom, Industrial Style, Camel Brown and Black ULLS144B50",
@@ -446,6 +472,10 @@ home8 = Product.create(
     description: "Introducing our 4-Tier Ladder Shelf, a versatile storage solution for your home. This ladder shelf is designed for stability, featuring a solid frame, reinforced by X-shaped bars, adjustable feet, and an anti-tip kit. Its durable construction combines a robust steel frame with quality particleboard for long-term use. With reasonable spacing and 13” between shelves, it accommodates taller items and provides 7.5” of floor space for easy vacuuming. Whether you want to display trinkets, plants, books, or kitchen utensils, this storage rack can adapt to any room's needs. The hassle-free assembly, with a simple structure and illustrated instructions, ensures a quick setup.",
     category: "home",
     price: 79.99,
+)
+home8.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/home8.jpg"),
+    filename: "home8.jpg"
 )
 
 # Book & Media
@@ -462,6 +492,10 @@ books1 = Product.create(
     category: "books",
     price: 19.99,
 )
+books1.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/books1.jpg"),
+    filename: "books1.jpg"
+)
 
 books2 = Product.create(
     name: "How to Win Friends & Influence People",
@@ -474,6 +508,10 @@ books2 = Product.create(
     description: "Discover the secrets of success with Dale Carnegie's enduring classic, 'How to Win Friends and Influence People.' This audiobook, presented by Simon & Schuster Audio, provides a wealth of invaluable advice that has propelled countless individuals towards achievement and prosperity for over six decades. Explore the art of building relationships with techniques for making people like you, winning them over to your perspective, and bringing about change without creating resistance. Don't miss the opportunity to learn from this perennial best-seller that offers timeless wisdom for success.",
     category: "books",
     price: 10.82,
+)
+books2.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/books2.jpg"),
+    filename: "books2.jpg"
 )
 
 books3 = Product.create(
@@ -489,6 +527,10 @@ books3 = Product.create(
     category: "books",
     price: 35.99,
 )
+books3.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/books3.jpg"),
+    filename: "books3.jpg"
+)
 
 books4 = Product.create(
     name: "Where the Crawdads Sing",
@@ -502,6 +544,10 @@ books4 = Product.create(
     description: "Where the Crawdads Sing is a literary sensation, with over 18 million copies sold worldwide and its recent adaptation into a major motion picture. It is a captivating blend of murder mystery and coming-of-age tale, set against the backdrop of the hauntingly beautiful North Carolina coast. The story follows the life of Kya Clark, known as the 'Marsh Girl,' who has survived in solitude in her beloved marsh. The book explores her sensitive and intelligent nature, the enigmatic circumstances surrounding a local man's death, and the profound impact of the natural world on her life. With endorsements from Reese Witherspoon and accolades from The New York Times, this novel is a breathtaking ode to nature, childhood, and the secrets it conceals.",
     category: "books",
     price: 20.24,
+)
+books4.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/books4.jpg"),
+    filename: "books4.jpg"
 )
 
 books5 = Product.create(
@@ -517,6 +563,10 @@ books5 = Product.create(
     category: "books",
     price: 13.48,
 )
+books5.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/books5.jpg"),
+    filename: "books5.jpg"
+)
 
 books6 = Product.create(
     name: "1984: New Classic Edition",
@@ -530,6 +580,10 @@ books6 = Product.create(
     description: "Experience George Orwell's timeless classic, '1984,' in this new recording by Blackstone Publishing. This celebrated work has never lost its relevance, offering a cautionary tale of a world under the watchful eye of an authoritarian state, a reality that feels as pertinent today as it did in Orwell's time. The story unfolds in a gray, totalitarian society ruled by Big Brother and the Thought Police, where the concept of privacy is nonexistent, and dissenting voices are silenced. Winston Smith, the novel's unheroic hero, strives for truth and decency, even as he knows that his forbidden love affair will lead to his destruction. '1984' remains a prophetic and chilling masterpiece, serving as a stark reminder of the consequences of eroded freedom and truth.",
     category: "books",
     price: 13.39,
+)
+books6.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/books6.jpg"),
+    filename: "books6.jpg"
 )
 
 books7 = Product.create(
@@ -545,6 +599,10 @@ books7 = Product.create(
     category: "books",
     price: 20.99,
 )
+books7.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/books7.jpg"),
+    filename: "books7.jpg"
+)
 
 books8 = Product.create(
     name: "The Art of War",
@@ -558,6 +616,10 @@ books8 = Product.create(
     description: "'The Art of War,' an ancient Chinese military masterpiece dating back to the fifth century BC, offers timeless wisdom in the realm of strategy and warfare. Attributed to the brilliant military strategist Sun Tzu, the work is aptly titled 'Master Sun's Rules of Warfare' when translated from Chinese. Within its 13 chapters, this profound text delves into various aspects of warfare strategy. Recognized as the most crucial of China's Seven Military Classics by Emperor Shenzong of Song in 1080, it continues to hold a prominent place as one of the most influential strategy texts in East Asia. Notable leaders like Mao Zedong, General Douglas MacArthur, and General Vo Nguyen Giap have drawn inspiration from the profound teachings of Sun Tzu, making it a timeless resource for strategic thinkers and military minds.",
     category: "books",
     price: 13.77,
+)
+books8.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/books8.jpg"),
+    filename: "books8.jpg"
 )
 
 # Sports & Outdoor
@@ -573,6 +635,10 @@ sports1 = Product.create(
     description: "Franklin's X-40 outdoor pickleballs are the preferred choice of both professional and amateur players. These premium-quality pickleballs are meticulously crafted and extensively tested to ensure top-notch performance and durability. Their precision design, featuring 40 machine-drilled holes, provides a balanced flight pattern and consistent spin that remains uniform across all balls. The one-piece, no-seam construction enhances their outdoor durability, making them resistant to dents and cracking on pickleball courts. Approved by USA Pickleball (USAPA) for official tournament play, these X-40 pickleballs are the selected balls for prestigious events like the US Open Pickleball Championships and USA Pickleball. This set includes three X-40 pickleballs along with a convenient ball tube for easy transportation and storage when you're off the court.",
     category: "sports",
     price: 11.99,
+)
+sports1.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/sports1.jpg"),
+    filename: "sports1.jpg"
 )
 
 sports2 = Product.create(
@@ -590,6 +656,10 @@ sports2 = Product.create(
     category: "sports",
     price: 35.99,
 )
+sports2.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/sports2.jpg"),
+    filename: "sports2.jpg"
+)
 
 sports3 = Product.create(
     name: "Franklin Sports Blackhawk Soccer Goal - Pop Up Backyard Soccer Nets - Foldable Indoor + Outdoor Soccer Goals - Portable Adult + Kids Soccer Goal",
@@ -604,6 +674,10 @@ sports3 = Product.create(
     category: "sports",
     price: 30.99,
 )
+sports3.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/sports3.jpg"),
+    filename: "sports3.jpg"
+)
 
 sports4 = Product.create(
     name: "Spalding Outdoor Basketballs, Performance Rubber Cover Stands up to Asphalt or Concrete - 29.5\", 28.5\", 27.5\"",
@@ -616,6 +690,10 @@ sports4 = Product.create(
     description: "The Spalding Outdoor Basketballs are your go-to choice for outdoor play on asphalt or concrete surfaces. These basketballs come in various sizes including 29.5\", 28.5\", and 27.5\" to suit your preferences. They are officially sized and weighted, with the size 7 (29.5\") ball being the standard size. The performance outdoor rubber cover is designed to stand up to the rigors of outdoor play, ensuring durability and long-lasting performance. Plus, these basketballs are shipped inflated and game-ready, allowing you to hit the court without delay. Whether you're practicing your skills or playing a competitive game, these Spalding basketballs are built to perform in outdoor conditions.",
     category: "sports",
     price: 18.03,
+)
+sports4.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/sports4.jpg"),
+    filename: "sports4.jpg"
 )
 
 sports5 = Product.create(
@@ -631,6 +709,10 @@ sports5 = Product.create(
     category: "sports",
     price: 62.99,
 )
+sports5.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/sports5.jpg"),
+    filename: "sports5.jpg"
+)
 
 sports6 = Product.create(
     name: "VIFUUR Water Sports Shoes Barefoot Quick-Dry Aqua Yoga Socks Slip-on for Men Women",
@@ -645,6 +727,10 @@ sports6 = Product.create(
     description: "These water shoes are the perfect choice for water-related activities and more. Constructed from 100% synthetic materials, they are both durable and comfortable. The rubber sole offers foot protection and is wear-resistant, making them suitable for various outdoor activities. The smooth neck design ensures convenience and prevents chafing during wear. These shoes are designed for a comfortable fit, with breathable and flexible fabrics that feel like socks. They are versatile and ideal for activities such as yoga training, beach sports, swimming, and more. These water shoes are available in various sizes to fit different feet, including little kids, big kids, men, and women.",
     category: "sports",
     price: 11.99,
+)
+sports6.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/sports6.jpg"),
+    filename: "sports6.jpg"
 )
 
 sports7 = Product.create(
@@ -663,6 +749,10 @@ sports7 = Product.create(
     category: "sports",
     price: 42.50,
 )
+sports7.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/sports7.jpg"),
+    filename: "sports7.jpg"
+)
 
 sports8 = Product.create(
     name: "BUZIO Vacuum Insulated Stainless Steel Water Bottle 64oz (Cold for 48 Hrs/Hot for 24 Hrs) BPA Free Double Wall Travel Mug/Flask for Outdoor Sports Hiking, Cycling, Camping, Running",
@@ -677,4 +767,41 @@ sports8 = Product.create(
     category: "sports",
     price: 27.98,
 )
+sports8.photo.attach(
+    io: URI.open("https://amuhzaan-seeds.s3.us-west-1.amazonaws.com/sports8.jpg"),
+    filename: "sports8.jpg"
+)
+
+
+titles = [
+    "Great product", "Excellent choice", "Worth the money", "Impressive", 
+    "Highly recommended", "Very satisfied", "Good purchase",
+    "Not worth it", "Disappointing", "Terrible experience", "Regrettable",
+    "Waste of money", "Poor quality", "Worst purchase ever"
+]
+bodies = [
+    "This product exceeded my expectations.", "I couldn't be happier with my purchase.",
+    "It's a great value for the price.", "I love it!", "I would buy it again in a heartbeat.",
+    "It's exactly what I was looking for.", "I'm very impressed with this product.",
+    "I'm very dissatisfied with this product.", "It fell short of my expectations.",
+    "I wouldn't recommend this product to anyone.", "I regret buying this.",
+    "Total waste of money.", "The quality is terrible.", "It's the worst purchase I've made."
+]
+
+user_id = 2 #demo2
+
+(1..40).each do |product_id|
+    rating = rand(1..5)  
+    title = titles.sample  
+    body = bodies.sample  
+
+    review = Review.create(
+        user_id: user_id,
+        product_id: product_id,
+        rating: rating,
+        title: title,   
+        body: body     
+    )
+end
+
 puts "Done!"

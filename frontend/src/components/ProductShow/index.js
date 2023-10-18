@@ -71,7 +71,7 @@ const ProductShow = () => {
         <>
             <div className="product-show-container">
                 <div className="show-image">
-                    <img src="https://via.placeholder.com/300x300"/>
+                <img className="product-image" src={product.photoUrl} alt="product-image"/>
                 </div>
 
                 <div className="product-info">

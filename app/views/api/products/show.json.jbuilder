@@ -1,5 +1,6 @@
 json.product do 
     json.extract! @product, :id, :category, :name, :feature, :description, :price
+    json.photoUrl @product.photo.attached? ? @product.photo.url : nil
 end
 
 # reviews = @product.reviews.where(product_id: @product.id)
