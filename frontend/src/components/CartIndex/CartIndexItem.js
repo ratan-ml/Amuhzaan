@@ -43,9 +43,9 @@ const CartIndexItem = ({cartItem}) => {
     return (
         <>
             <div className="cart-item-container">
-                <div className="item-img">
+                <div className="item-image">
                     <Link to={`/products/${cartItem.product.id}`}>
-                        <img src="https://via.placeholder.com/150x150"/>
+                    <img className="product-image" src={cartItem.photoUrl} alt="product-image"/>
                     </Link>
                 </div>
                 <div className="item-detail">
@@ -76,9 +76,9 @@ const CartIndexItem = ({cartItem}) => {
                                 <option value="11">10+</option>
                             </select>
                         )}
-                        <i class="icon-text-separator" role="img" aria-label="|"></i>
+                        <i className="icon-text-separator" role="img" aria-label="|"></i>
                         <button className="item-delete-btn" onClick={handleDeleteClick}>Delete</button>
-                        <i class="icon-text-separator" role="img" aria-label="|"></i>
+                        <i className="icon-text-separator" role="img" aria-label="|"></i>
                     </div>
                 </div>
                 <div className="item-price">

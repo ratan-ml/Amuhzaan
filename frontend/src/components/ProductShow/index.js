@@ -19,7 +19,7 @@ const ProductShow = () => {
     const [quantity, setQuantity] = useState(1)
     const reviews = useSelector(getReviews)
     const productReviews = reviews.filter(review => review.productId == productId)
-    const orderReviews = [...Object.values(productReviews)].reverse()
+    // const orderReviews = [...Object.values(productReviews)].reverse()
 
     useEffect(() => {
         dispatch(fetchProduct(productId));
@@ -71,7 +71,7 @@ const ProductShow = () => {
         <>
             <div className="product-show-container">
                 <div className="show-image">
-                <img className="product-image" src={product.photoUrl} alt="product-image"/>
+                    <img className="product-image" src={product.photoUrl} alt="product-image"/>
                 </div>
 
                 <div className="product-info">
@@ -101,24 +101,17 @@ const ProductShow = () => {
                     </div>
                     <p>prime</p>
                     <br/>
-                    {/* delivery date */}
                     <p>FREE delivery (date) </p>
                     <p>or fastest delivery (date) </p>
                     <br/>
-                    {/* in stock/out of stock */}
                     <p className="in-stock">In Stock</p>
                     Qty: 
                     <select onChange={e => setQuantity(e.target.value)}>
                         {options}
                     </select>
-                    {/* quantity (edit in cart)*/}
-                    {/* add to cart (can add to cart when not logged in) */}
                     <button className="add-to-cart-btn" onClick={handleCartClick}>Add to Cart</button>
                     <br/>
-                    {/* buy now (requires user to be logged in) */}
-                    {/* buy now btn is not always available */}
                     <button className="buy-now-btn" onClick={handleBuyClick}>Buy Now</button>
-                    {/* misc detail */}
                     <p className="a-size-small">
                         <span className="gray">Payment</span> Secure Transaction
                     </p>
@@ -138,12 +131,10 @@ const ProductShow = () => {
                     <p>{product.description}</p>
                 </div>
             </div>
-            {/* divider for reviews */}
             <hr></hr>
             <div className="reviews-container">
                 <div className="review-summary">
                     <h2 className="summary-header">Customer Reviews</h2>
-                    {/* average rating here: stars and text */}
                     <div className="summary-rating-widget">
                         <DisplayRating rating={avgRating} large="true"/>
                         <span className="summary-text">{avgRating || 0} out of 5</span>
@@ -152,8 +143,8 @@ const ProductShow = () => {
                 <div className="users-review">
                     {/* customer reviews */}
                     <h1 className="review-section-header">Top reviews from the United States</h1>
+                    {productReviews.map(review => <ReviewIndexItem review={review} />)}
                     <ProductReviewForm product={product} />
-                    {orderReviews.map(review => <ReviewIndexItem review={review} />)}
                 </div>
             </div>
         </>

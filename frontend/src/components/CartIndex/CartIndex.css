@@ -175,3 +175,7 @@ a:hover {
 .qty-name {
     padding-right: 5px;
 }
+
+.item-image {
+    height: 150px;
+}
