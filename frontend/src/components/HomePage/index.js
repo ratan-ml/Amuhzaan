@@ -1,4 +1,4 @@
-import banner1 from '../../assets/home-banner-1.1.jpg';
+import banner1 from '../../assets/home-banner-1.jpg';
 import Footer from "../Footer";
 import './HomePage.css';
 
