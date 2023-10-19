@@ -5,6 +5,8 @@ const ProductIndexItem = ({product}) => {
     const price = product.price.toFixed(2).toString();
     const [whole, fraction] = price.split('.');
 
+    const displayName = product.name.length > 140 ? product.name.slice(0, 140) + "..." : product.name
+
     return (
         <div className="product-container">
             <Link to={`/products/${product.id}`}>
@@ -14,7 +16,7 @@ const ProductIndexItem = ({product}) => {
             </Link>
             <div className="product-listing-details">
                 <h3 className="product-name">
-                    <Link to={`/products/${product.id}`}>{product.name}</Link>
+                    <Link to={`/products/${product.id}`}>{displayName}</Link>
                 </h3>
                 <DisplayRating rating={product.rating}/>
                 <div className="product-price">
