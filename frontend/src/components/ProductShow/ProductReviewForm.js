@@ -46,14 +46,14 @@ const ProductReviewForm = ({product}) => {
                 <input required
                     type="text"
                     value={title}
-                    placeholder="What shall be the title?"
+                    placeholder="Please provide a concise and descriptive title for your review."
                     onChange={e => setTitle(e.target.value)}
                 />
             </label>
             <label>Add a review
                 <textarea required
                     value={body}
-                    placeholder="Did you leave the front door open?"
+                    placeholder="Share your detailed and thoughtful experience with the product. Include relevant information, pros, cons, and any helpful insights to assist other customers in making an informed decision."
                     onChange={e => setBody(e.target.value)}
                 />
             </label>

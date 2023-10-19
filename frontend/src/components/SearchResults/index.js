@@ -18,23 +18,17 @@ const SearchResults = () => {
         dispatch(fetchProducts());
     },[])
 
-    return (
-        <>
-        
-            { filteredProducts.length > 0 ? (
-                <div className="product-index">
-                    {filteredProducts.map(product => <ProductIndexItem product={product}/>)}
-                </div>
-            ) : (
-                <div className="no-results">
-                    <div className="no-res-txt">
-                        <p>the cake is a lie.</p>
-                        <p>No results for {term}.</p>
-                    </div>
-                </div>
-            )}
-        
-        </>
+return filteredProducts.length > 0 ? (
+        <div className="product-index">
+            {filteredProducts.map(product => <ProductIndexItem product={product}/>)}
+        </div>
+    ) : (
+        <div className="no-results">
+            <div className="no-result-text">
+                <p>Sorry, we couldn't find any products matching your search for "{term}".</p>
+                <p>Please try a different search term or explore our categories for more options.</p>
+            </div>
+        </div>
     )
 }
 
