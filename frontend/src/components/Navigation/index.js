@@ -20,7 +20,6 @@ const Navigation = () => {
     const cartItems = useSelector(getCartItems)
 
     let quantity = 0
-    // userCartItems.map(item => quantity += item.quantity)
 
     useEffect(() => {
         if (sessionUser) {
