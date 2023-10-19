@@ -11,6 +11,7 @@ const CartIndex = () => {
     const cartItems = useSelector(getCartItems)
     const history = useHistory()
     const sessionUser = useSelector(state => state.session.user)
+    const userCartItems = cartItems.filter(cartItem => cartItem.userId === sessionUser.id)
 
     useEffect(()=>{
         dispatch(fetchCartItems())
@@ -49,7 +50,7 @@ const CartIndex = () => {
                     </div>
                     <hr className="cart-divider"></hr>
                 </div>
-                {cartItems.map(cartItem=> <CartIndexItem cartItem={cartItem}/>)}
+                {userCartItems.map(cartItem=> <CartIndexItem cartItem={cartItem}/>)}
                 <div className="cart-subtotal">
                     <span>Subtotal ({cartTotalQty} items): </span>
                     <span className="total-price">${cartTotal.toFixed(2)}</span>

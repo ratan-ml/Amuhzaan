@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import './Navigation.css';
 import logo from '../../assets/logo.png';
 import cart from '../../assets/cart.png';
 import { FaMagnifyingGlass } from 'react-icons/fa6';
-import { getCartItems } from '../../store/cart_items';
+import { fetchCartItems, getCartItems } from '../../store/cart_items';
 import { AiFillCaretDown } from 'react-icons/ai';
 import * as sessionActions from '../../store/session';
 import linkedinIcon from '../../assets/linkedin.png';
@@ -16,9 +16,25 @@ const Navigation = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const [term, setTerm] = useState("")
+    const [fetchedCartItems, setfetchedCartItems] = useState(false)
     const cartItems = useSelector(getCartItems)
+
     let quantity = 0
-    cartItems.map(item => quantity += item.quantity)
+    // userCartItems.map(item => quantity += item.quantity)
+
+    useEffect(() => {
+        if (sessionUser) {
+            dispatch(fetchCartItems());
+            setfetchedCartItems(true);
+        } else {
+            setfetchedCartItems(false);
+        }
+    },[sessionUser])
+
+    if (fetchedCartItems) {
+        const userCartItems = cartItems.filter(cartItem => cartItem.userId === sessionUser.id)
+        userCartItems.map(item => quantity += item.quantity)
+    }
 
     const categories = {
         "Electronics": "electronics",
@@ -28,9 +44,10 @@ const Navigation = () => {
         "Sports and Outdoors": "sports"
     }
 
-
     const handleLogout = (e) => {
         e.preventDefault();
+        setfetchedCartItems(false);
+        history.push("/login");
         dispatch(sessionActions.logout());
     };
 

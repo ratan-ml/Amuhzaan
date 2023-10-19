@@ -2,7 +2,7 @@ class Api::CartItemsController < ApplicationController
     before_action :require_logged_in, only: [:index, :create]
 
     def index
-        @cart_items = current_user ? current_user.cartItems : []
+        @cart_items = current_user ? current_user.cartItems.includes(:product) : []
         render :index
     end
 
