@@ -1,6 +1,6 @@
 class Api::ReviewsController < ApplicationController
     def index
-        # @reviews = Product.reviews
+        # handled in product#show controller action
     end
 
     def create
@@ -20,11 +20,6 @@ class Api::ReviewsController < ApplicationController
             render json: {error: 'Failed to update review' }, status: 422
         end
     end
-
-    # def show 
-    #     @review = Review.find_by(id: params[:id])
-    #     render :show
-    # end
 
     def destroy
         @review = Review.find_by(id: params[:id])

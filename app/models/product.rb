@@ -1,6 +1,5 @@
 class Product < ApplicationRecord
     validates :category, :name, :description, :price, presence: true
-    # category inclusion validation?
 
     has_one_attached :photo
 
