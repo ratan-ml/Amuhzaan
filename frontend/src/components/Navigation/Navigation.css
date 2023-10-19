@@ -43,7 +43,6 @@
     padding: 10px 4px 10px 3px;
 }
 .search-form {
-    /* align-items: center; */
     background-color: #fff;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0,0,0,.1);
@@ -90,7 +89,6 @@
 .user-widgets {
     display: flex;
     justify-content: end;
-    /* justify-content: center; */
     align-items: center;
 }
 
@@ -135,12 +133,12 @@
     text-align: center;
     width: 50px;
     right: 30px;
-    top: 12px; /* Use a negative top margin to move the number up */
+    top: 12px; 
     font-size: 18px;
     color: #ed8605;
     font-weight: bold;
     z-index: 20;
-    margin: 0 auto; /* Center the text horizontally */
+    margin: 0 auto; 
 }
 
 

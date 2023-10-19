@@ -80,7 +80,6 @@ const Navigation = () => {
             <div className="dropdown-content">
                 <NavLink className="menu-login-container" to="/login">
                     <span className="login-text">Sign in</span>
-                    {/* <a className="menu-login" href="/login">Sign in</a> */}
                 </NavLink>
                 <div className="new-customer">
                     New Customer?

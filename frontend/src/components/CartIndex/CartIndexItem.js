@@ -7,14 +7,16 @@ const CartIndexItem = ({cartItem}) => {
     const dispatch = useDispatch()
     const [quantity, setQuantity] = useState(cartItem.quantity)
     const [inputMode, setInputMode] = useState(false)
+    const [qtyBuffer, setQtyBuffer] = useState(quantity)
+    const [showUpdateBtn, setShowUpdateBtn] = useState(false)
 
     useEffect(()=> {
         setQuantity(cartItem.quantity)
-        if (quantity > 10) setInputMode(true)
+        setInputMode(quantity > 9 ? true : false)
     },[cartItem])
 
     const options = []
-    for (let i = 1; i <= 10; i++) {
+    for (let i = 1; i <= 9; i++) {
         options.push(<option value={i}>{i}</option>);
     }
 
@@ -24,19 +26,35 @@ const CartIndexItem = ({cartItem}) => {
         e.preventDefault();
         const newQty = e.target.value;
         setQuantity(newQty);
+        setQtyBuffer(newQty);
         const updatedCartItem = {...cartItem, quantity: newQty};
         dispatch(updateCartItem(updatedCartItem));
     }
 
     const handleDeleteClick = e => {
-        e.preventDefault()
+        e.preventDefault();
         dispatch(deleteCartItem(cartItem.id))
     }
 
-    const handleInputState = e => {
-        e.preventDefault()
-        if (quantity < 11) setInputMode(false)
+    const handleInputSubmit = e => {
+        e.preventDefault();
+        setQuantity(qtyBuffer);
+        setShowUpdateBtn(false);
+        const updatedCartItem = {...cartItem, quantity: qtyBuffer};
+        dispatch(updateCartItem(updatedCartItem));
     }
+
+    const handleBufferChange = e => {
+        e.preventDefault();
+        setQtyBuffer(e.target.value)
+    }
+
+    const showButton = e => {
+        e.preventDefault();
+        setShowUpdateBtn(true);
+    }
+
+    const displayUpdate = showUpdateBtn ? <button id="qty-update-btn" className="update-btn" type="submit">Update</button> : null
 
     return (
         <>
@@ -56,22 +74,22 @@ const CartIndexItem = ({cartItem}) => {
                     <div className="item-update">
                         <span className="qty-name">Qty:</span>
                         { inputMode ? (
-                            <form className="edit-qty-form" onSubmit={handleInputState}>
+                            <form className="edit-qty-form" onSubmit={handleInputSubmit}>
                                 <input
-                                    type="number"
+                                    type="text"
                                     className="item-input"
-                                    value={quantity}
-                                    onChange={handleQuantityChange}
+                                    value={qtyBuffer}
+                                    onClick={showButton}
+                                    onChange={handleBufferChange}
                                     min={1}
                                 />
-                                <button className="update-btn" type="submit">Update</button>
+                                {displayUpdate}
                             </form>
 
                         ) : (
                             <select className="select-qty" value={quantity} onChange={handleQuantityChange}>
                                 {options}
-                                {/* <hr></hr> */}
-                                <option value="11">10+</option>
+                                <option value="10">10+</option>
                             </select>
                         )}
                         <i className="icon-text-separator" role="img" aria-label="|"></i>

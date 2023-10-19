@@ -78,14 +78,16 @@
     border-radius: 5px;
 }
 
-input[type=number] {
+.edit-qty-form [type=text] {
     border: 1px solid #888C8C;
     border-radius: 4px;
     box-shadow: 0 1px 2px rgba(15,17,17,.15) inset;
     outline: 0;
     background-color: #fff;
     height: 17px;
+    width: 40px;
     padding: 3px 7px;
+    margin-bottom: 0;
 }
 
 a {
@@ -146,9 +148,6 @@ a:hover {
     background-color: #ffd814;
     border-radius: 8px;
     border-color: #ffd814;
-    /* margin-top: 10px; */
-    /* margin-bottom: 5px; */
-    /* height: 30px; */
     width: 60px;
 }
 
