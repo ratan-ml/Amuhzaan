@@ -20,10 +20,10 @@ const CartIndex = () => {
     if (!sessionUser) history.push("/login")
 
     let cartTotal = 0
-    cartItems.forEach(cartItem => cartTotal += cartItem.quantity * cartItem.product.price)
+    userCartItems.forEach(cartItem => cartTotal += cartItem.quantity * cartItem.product.price)
 
     let cartTotalQty = 0
-    cartItems.forEach(cartItem => cartTotalQty += cartItem.quantity)
+    userCartItems.forEach(cartItem => cartTotalQty += cartItem.quantity)
 
 
     if (!cartItems || !cartItems.length) return (

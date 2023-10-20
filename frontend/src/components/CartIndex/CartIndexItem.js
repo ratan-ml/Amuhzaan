@@ -41,6 +41,7 @@ const CartIndexItem = ({cartItem}) => {
         setQuantity(qtyBuffer);
         setShowUpdateBtn(false);
         const updatedCartItem = {...cartItem, quantity: qtyBuffer};
+        qtyBuffer < 1 ? dispatch(deleteCartItem(cartItem.id)) :
         dispatch(updateCartItem(updatedCartItem));
     }
 
@@ -76,7 +77,7 @@ const CartIndexItem = ({cartItem}) => {
                         { inputMode ? (
                             <form className="edit-qty-form" onSubmit={handleInputSubmit}>
                                 <input
-                                    type="text"
+                                    type="number"
                                     className="item-input"
                                     value={qtyBuffer}
                                     onClick={showButton}
