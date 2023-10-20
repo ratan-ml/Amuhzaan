@@ -101,4 +101,3 @@ const handleBufferChange = e => {
 ```
 ### Future Implementations
 + Order History
-+ Bug: Fix input quantity to restrict input to integers, account for zero quantity to delete cart item, and disable negative integers.
