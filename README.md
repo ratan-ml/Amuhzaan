@@ -24,9 +24,10 @@ Amuhzaan is a full-stack e-commerce application designed as a clone of Amazon. T
 
 **Challenge:** Implementing a robust product review system that allows users to read and write reviews for various products, each with its rating and feedback.
 
-**Solution:** Only logged-in users can create a review with the restriction of one review per product and only the author of the review and edit or delete the review. If not logged-in, text will appear to prompt for a login and the create form will not be displayed.
+**Solution:** Only logged-in users can create a review with the restriction of one review per product and only the author of the review and edit or delete the review. If not logged in, text will appear to prompt for a login and the create form will not be displayed.
 
-```
+```javascript
+// ProductReviewForm.js
 if (!sessionUser) {
     return <p className="review-disabled">Please sign in to review this product.</p>
 } else if (reviewers.includes(sessionUser.id)) {
@@ -35,7 +36,8 @@ if (!sessionUser) {
 ```
 Restrict access to update and delete functions to only the reviewer.
 
-```
+```javascript
+// ReviewIndexItem.js
 const sessionUser = useSelector(state => state.session.user)
 const reviewer = review.userId == sessionUser?.id
 
@@ -56,26 +58,28 @@ const deleteButton = reviewer ? (
 
 In CartItemsController, if the cart item is found, it will add the selected or inputted quantity to the existing quantity. If not, it will create and save a new cart item object.
 
-```
-  def create
-      @cart_item = CartItem.find_by(
-          user_id: current_user.id, 
-          product_id: cart_item_params[:product_id]
-      )
-      @cart_item ||= CartItem.new(cart_item_params)
+```javascript
+// CartItemsController
+def create
+  @cart_item = CartItem.find_by(
+      user_id: current_user.id, 
+      product_id: cart_item_params[:product_id]
+  )
+  @cart_item ||= CartItem.new(cart_item_params)
 
-      @cart_item.quantity += cart_item_params[:quantity].to_i if @cart_item.persisted?
-      
-      if @cart_item.save
-          render :show
-      else
-          render json: @cart_item.errors.full_messages, status: 422
-      end
+  @cart_item.quantity += cart_item_params[:quantity].to_i if @cart_item.persisted?
+  
+  if @cart_item.save
+      render :show
+  else
+      render json: @cart_item.errors.full_messages, status: 422
   end
+end
 ```
 To ensure the updated quantity was accurately reflected on the cart index page, I managed the quantity state by setting it to the new value passed by cartItem and including cartItem in the dependency array to account for changes in this variable. This allowed the quantity state to have the move updated value displayed when entering the page.
 
-```
+```javascript
+// CartIndexItem.js
 useEffect(()=> {
     setQuantity(cartItem.quantity)
     setInputMode(quantity > 9 ? true : false)
@@ -83,7 +87,7 @@ useEffect(()=> {
 ```
 The *inputMode* state serves as a versatile switch that dynamically alters the HTML component based on the selected quantity. This feature empowers customers to conveniently choose their desired quantity by seamlessly toggling between a select option and an input text field. I introduced a new state called *qtyBuffer*. This state prevents the quantity from updating with every input in the text field, ensuring that changes are only applied when the form is officially submitted. This approach promotes a more user-friendly interaction while maintaining data integrity.
 
-```
+```javascript
 const [qtyBuffer, setQtyBuffer] = useState(quantity)
 
 const handleBufferChange = e => {
