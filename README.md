@@ -1,4 +1,4 @@
-# [Amuhzaan](amuhzaan.onrender.com) - [Amazon](https://www.amazon.com/) Clone
+# [Amuhzaan](https://www.amuhzaan.onrender.com) - [Amazon](https://www.amazon.com/) Clone
 
 ## Overview
 
