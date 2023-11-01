@@ -2,7 +2,6 @@
 .footer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     background-color: #232f3e;
     border-top: 1px solid #131a22;
