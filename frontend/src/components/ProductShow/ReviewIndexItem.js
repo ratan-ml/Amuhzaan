@@ -54,7 +54,7 @@ const ReviewIndexItem = ({review}) => {
                     {/* future plan: move form to modal */}
                     <form className="edit-review-form" onSubmit={handleEditReview}>
                         <label>Edit headline
-                            <input
+                            <input required
                                 type="text"
                                 value={title}
                                 placeholder="Please provide a concise and descriptive title for your review."
@@ -63,7 +63,7 @@ const ReviewIndexItem = ({review}) => {
                         </label>
                         <label>Edit review
                             <br/>
-                            <textarea
+                            <textarea required
                                 value={body}
                                 placeholder="Share your detailed and thoughtful experience with the product. Include relevant information, pros, cons, and any helpful insights to assist other customers in making an informed decision."
                                 onChange={e => setBody(e.target.value)}
