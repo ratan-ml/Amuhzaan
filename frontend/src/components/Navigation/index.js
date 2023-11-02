@@ -105,10 +105,10 @@ const Navigation = () => {
             <div className="top-navbar">
                 <div className="nav-left">
                     <NavLink to="/"><img className="home-logo" src={logo} alt='amznLogo' /></NavLink>
-                    <a href="https://linkedin.com/in/raymondtan-py" target="_blank">
+                    <a href="https://linkedin.com/in/raymondtan676" target="_blank">
                         <img className="linkedin" src={linkedinIcon} alt='linkedinLogo' />
                     </a>
-                    <a href="https://github.com/ratan-ml" target="_blank">
+                    <a href="https://github.com/raymondtan676" target="_blank">
                         <img className="github" src={githubIcon} alt='githubLogo' />
                     </a>
                     
