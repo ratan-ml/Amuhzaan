@@ -1,5 +1,5 @@
-# [Amuhzaan](https://amuhzaan.onrender.com/) - [Amazon](https://www.amazon.com/) Clone
-
+# Amuhzaan - [Amazon](https://www.amazon.com/) Clone
+[![Live Site](https://img.shields.io/badge/site-online-green.svg)](https://amuhzaan.onrender.com/)
 ## Overview
 
 Amuhzaan is a full-stack e-commerce application designed as a clone of Amazon. The application replicates its core functionalities by allowing users to browse, purchase, and review products.
