@@ -1,8 +1,9 @@
 # Amuhzaan - [Amazon](https://www.amazon.com/) Clone
 [![Live Site](https://img.shields.io/badge/site-online-green.svg)](https://amuhzaan.onrender.com/)
-## Overview
 
 Amuhzaan is a full-stack e-commerce application designed as a clone of Amazon. The application replicates its core functionalities by allowing users to browse, purchase, and review products.
+
+![intro](frontend/public/amuhzaan-thumbnail.png)
 
 ## Technologies Used
 <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" height="33"/><img src="https://img.shields.io/badge/Ruby-CC342D?style=for-the-badge&logo=ruby&logoColor=white" height="33" />
@@ -10,13 +11,12 @@ Amuhzaan is a full-stack e-commerce application designed as a clone of Amazon. T
 <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" height="33"/><img src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white" height="33"/><img src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white" height="33" /><img src="https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white" height="33" /><img src="https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white" height="33"/>
 <img src="https://img.shields.io/badge/Ruby_on_Rails-CC0000?style=for-the-badge&logo=ruby-on-rails&logoColor=white" height="33"/><img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" height="33"/><img src="https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white" height="33" /><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" height="33"/>
 
-+ Languages: Javascript, Ruby
-+ Frontend: React, Redux
-+ Backend API: Rails
-+ Database: PostgreSQL
-+ Hosting: Render
-+ Asset Storage: AWS
-+ HTML/CSS
+* Javascript and React - frontend design composition
+* Redux - frontend state management
+* Ruby on Rails - backend data fetching API
+* PostgreSQL - backend relational database
+* AWS - cloud hosting and storage
+* Render - web hosting platform
 
 ## Key Features
 
