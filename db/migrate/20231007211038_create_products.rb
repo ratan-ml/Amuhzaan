@@ -5,7 +5,7 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.string :name, null: false
       t.text :feature, default: [], array: true
       t.text :description, null: false
-      t.float :price, null: false
+      t.decimal :price, null: false
 
       t.timestamps
     end
