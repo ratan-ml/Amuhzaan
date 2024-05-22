@@ -76,7 +76,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_09_044422) do
     t.string "name", null: false
     t.text "feature", default: [], array: true
     t.text "description", null: false
-    t.float "price", null: false
+    t.decimal "price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_products_on_name"

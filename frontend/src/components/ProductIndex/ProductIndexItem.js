@@ -2,7 +2,8 @@ import { Link } from "react-router-dom"
 import DisplayRating from "../ProductShow/DisplayRating";
 
 const ProductIndexItem = ({product}) => {
-    const price = product.price.toFixed(2).toString();
+    const price = parseFloat(product.price).toFixed(2).toString();
+
     const [whole, fraction] = price.split('.');
 
     const displayName = product.name.length > 140 ? product.name.slice(0, 140) + "..." : product.name
@@ -11,7 +12,7 @@ const ProductIndexItem = ({product}) => {
         <div className="product-container">
             <Link to={`/products/${product.id}`}>
             <div className="product-listing-image">
-                    <img className="product-image" src={product.photoUrl} alt="product-image"/>
+                    <img className="product-image" src={product.photoUrl} alt="product"/>
             </div>
             </Link>
             <div className="product-listing-details">

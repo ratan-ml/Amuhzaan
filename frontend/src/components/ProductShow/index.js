@@ -9,6 +9,7 @@ import ReviewIndexItem from "./ReviewIndexItem";
 import DisplayRating from "./DisplayRating";
 import primeLogo from '../../assets/prime-logo.png';
 import "./ProductShow.css";
+import Modal from './Modal';
 
 // path = /products/:productId
 const ProductShow = () => {
@@ -19,7 +20,8 @@ const ProductShow = () => {
     const product = useSelector(getProduct(productId));
     const [quantity, setQuantity] = useState(1)
     const reviews = useSelector(getReviews)
-    const productReviews = reviews.filter(review => review.productId == productId)
+    const productReviews = reviews.filter(review => review.productId === Number(productId))
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         // fetchProduct will include reviews in json/jbuilder response
@@ -28,7 +30,7 @@ const ProductShow = () => {
 
     if (!product) return <h1>loading...</h1>
 
-    const price = product.price.toFixed(2).toString();
+    const price = parseFloat(product.price).toFixed(2).toString();
     const [whole, fraction] = price.split('.');
 
     const today = new Date();
@@ -78,7 +80,7 @@ const ProductShow = () => {
         <>
             <div className="product-show-container">
                 <div className="show-image">
-                    <img className="product-image" src={product.photoUrl} alt="product-image"/>
+                    <img className="product-image" src={product.photoUrl} alt="product"/>
                 </div>
 
                 <div className="product-info">
@@ -143,6 +145,13 @@ const ProductShow = () => {
                     <div className="summary-rating-widget">
                         <DisplayRating rating={avgRating} large="true"/>
                         <span className="summary-text">{avgRating || 0} out of 5</span>
+                    </div>
+                    <div>
+                        {/* <button type="button" className="btn btn-info btn-lg" onClick={() => setShowModal(true)}>Write a Review</button>
+
+                        <Modal show={showModal} onClose={() => setShowModal(false)}>
+                            <ProductReviewForm product={product} />
+                        </Modal> */}
                     </div>
                 </div>
                 <div className="customer-reviews">

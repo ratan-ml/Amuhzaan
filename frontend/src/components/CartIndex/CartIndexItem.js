@@ -9,6 +9,7 @@ const CartIndexItem = ({cartItem}) => {
     const [inputMode, setInputMode] = useState(false)
     const [qtyBuffer, setQtyBuffer] = useState(quantity)
     const [showUpdateBtn, setShowUpdateBtn] = useState(false)
+    console.log('cartItem',cartItem)
 
     useEffect(()=> {
         setQuantity(cartItem.quantity)
@@ -62,7 +63,7 @@ const CartIndexItem = ({cartItem}) => {
             <div className="cart-item-container">
                 <div className="item-image">
                     <Link to={`/products/${cartItem.product.id}`}>
-                    <img className="product-image" src={cartItem.photoUrl} alt="product-image"/>
+                    <img className="product-image" src={cartItem.photoUrl} alt="product"/>
                     </Link>
                 </div>
                 <div className="item-detail">
@@ -99,7 +100,7 @@ const CartIndexItem = ({cartItem}) => {
                     </div>
                 </div>
                 <div className="item-price">
-                    <h1>${cartItem.product.price.toFixed(2)}</h1>
+                    <h1>${Number(cartItem.product.price).toFixed(2)}</h1>
                 </div>
             </div>
             <hr className="cart-divider"></hr>

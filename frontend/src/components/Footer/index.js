@@ -19,7 +19,7 @@ const Footer = () => {
             </div>
 
             <div className="trademark">
-                <p>@October 2023, Amuhzaan is a Amazon Clone created by <a href="https://linkedin.com/in/raymondtan-py" target="_blank">Raymond Tan</a></p>
+                <p>@October 2023, Amuhzaan is a Amazon Clone created by <a href="https://linkedin.com/in/raymondtan-py" target="_blank" rel="noreferrer">Raymond Tan</a></p>
             </div>
             <span className="disclosure">This project is for educational purposes and is not officially associated with Amazon. No copyright infringement intended.</span>
         </footer>
